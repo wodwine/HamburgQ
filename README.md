@@ -11,7 +11,6 @@
 
 GitHub       |           Name           |               Roles
 -------------|--------------------------|-------------------------------------
-
 wodwine      |   Panthakarn Kiatpaisansopon    |       Scrum Master, Developer (Full stack)
 kidstylex    |   Arisa Pangpeng |              Developer (Front-end)
 326th  |  Thananan Eim-on        |              Developer (Back-end)
