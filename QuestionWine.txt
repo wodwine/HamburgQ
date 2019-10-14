@@ -24,3 +24,30 @@
     2. {x|if x != 100, then x>100}
     3. {x|20<x<25 and x % 9 ==0}
     4. {x|20<x<25 or x % 9 ==0}
+
+-Harry Potter
+1. What is the guardian animal of Harry Potter ?
+    1. Deer
+    2. Rat
+    3. Otter
+    4. Bird
+2. Who is the girl crying in the bathroom ?
+    1. Moaning myrtle
+    2. Hermione Granger
+    3. Sho Shang
+    4. Luna Lovegood
+3. What is the spell that can delete the memories of people ?
+    1. Expelliarmus
+    2. Avada kedavra
+    3. Obliviate
+    4. Expecto patronum
+4. Which one is the boggart that show Harry's scariest ?
+    1. Dementor
+    2. Snake
+    3. Severus Snape
+    4. Clowns
+5. What is the name of Albus Dumbledore's wand ?
+    1. Bomblaster wand 
+    2. Phoenix wand
+    3. Elder wand
+    4. Older wand
