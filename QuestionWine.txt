@@ -1,0 +1,26 @@
+-Mathematics
+1. sin 2A = ???
+    1. sinAcosA
+    2. cosA/2sinA/2
+    3. 2sinAcosA
+    4. 2cosA/2sinA/2
+2. What is the fundamental theorem of calculus ?
+    1. Differentiate
+    2. Integration
+    3. Pythagoras
+    4. Terminology
+3. 55%7+(4/5*15+2) = ???
+    1. 20
+    2. 19.6
+    3. 8.05
+    4. 13
+4. Which one of the following is not a parallelogram ?
+    1. Rectangle
+    2. Circle
+    3. Rhombus
+    4. Rhomboid
+5. Which one is empty set ?
+    1. {x|x is a people with 180 cm hight in the world}
+    2. {x|if x != 100, then x>100}
+    3. {x|20<x<25 and x % 9 ==0}
+    4. {x|20<x<25 or x % 9 ==0}
