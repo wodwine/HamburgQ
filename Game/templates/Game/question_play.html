@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>Play!</title>
-    <link rel = "stylesheet" href = "css/style.css" type = test/css>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Game/css/style.css' %}">
 </head>
 <body>
-    <div class = "container">
-        <header>
-            <div class="poll-left">HamburgQ</div>
-            <div class="poll-right">Score :</div>
-        </header>
-        <main>
-            <form class="questionFrom" id="q1" data-question = "1">
-                <h3>Question - text</h3>
-                <input type = "text" name = "q1" ><br>
-                <button id="submit">OK</button>
-            </form>
-
-            
-        </main>
+    <div class="split left">
+        <div class="centered" id = "quiz">
+                <form class="questionFrom" id="q1" data-question = "1">
+                    <h3>Question - text</h3>
+                    <button id = "btn0" ><span id ="choice0"></span></button><br>
+                    <button id = "btn1" ><span id ="choice1"></span></button><br>
+                    <button id = "btn2" ><span id ="choice2"></span></button><br>
+                    <button id = "btn3" ><span id ="choice3"></span></button><br>
+                </form>
+        </div>
     </div>
+            
+    <div class="split mid">
+        <div class="centered">
+            <h2>mid score board</h2>
+            <p>inprocess</p>
+        </div>
+    </div>
+            
+    <div class="split right">
+        <div class="centered">
+            <h2>P1</h2>
+            <p>Some text here too.</p>
+            <h2>P/</h2>
+            <p>Some text here too.</p>
+            <h2>time : xxx</h2>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/quiz.js"></script>
 </body>
