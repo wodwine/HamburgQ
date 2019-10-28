@@ -19,5 +19,7 @@ class Choice(models.Model):
         return self.choice_text
 
 class WaitingRoom:
+    room_name = models.CharField(max_length = 6)
     def __str__(self):
-        return "123456"
+        return room_name
+    

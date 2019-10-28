@@ -28,10 +28,14 @@
                 <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/home" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
+                {% if user.is_authenticated %}
+                <h>{{user.username}}</h>
+                <a href="{% url "Game:log_out"%}">Logout</a>
+                {% else %}
                 <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/admin" target="_self">
                     admin
                 </a>
-
+                {% endif %}
                 </div>
 
             </div>
@@ -51,14 +55,20 @@
                         <form action="" method="">
                             <div class="form-group row">
                                     <div class="col-md-6 offset-md-4">
-                                            <a href="host" target="_self" class="btn btn-info btn-md">Host</a>
-                                            <a href="guest" target="_self" class="btn btn-info btn-md">Guest</a>
+                                        {% if user.is_authenticated %}
+                                        <a href="host" target="_self" class="btn btn-info btn-md">Login</a>
+                                        {% else %}
+                                        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-info">
+                                            Host
+                                        </a>
+                                        {% endif %}
+                                        <a href="guest" target="_self" class="btn btn-info btn-md">Guest</a>
                                     </div>
                             </div>
                             <div class="col-md-6 offset-md-9"><a href="http://127.0.0.1:8000" class="btn btn-secondary">
                                 Back
                             </a>
-                        </div>
+                            </div>
                             
                     </div>
                     </form>
