@@ -27,3 +27,11 @@ def login_host(request):
 
 def login_guest(request):
     return render(request,'Login/loginguest.html')
+
+def waiting_room_host(request,room_id):
+    context = {'id' : room_id}
+    return render(request,'WaitingRoom/WRhost.html',context)
+
+def waiting_room_guest(request,room_id):
+    context = {'id' : room_id}
+    return render(request,'WaitingRoom/WRguest.html',context)
