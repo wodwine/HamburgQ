@@ -11,7 +11,7 @@ def play_quiz(request, quiz_name, question_number):
     return render(request,'Game/question_play.html',q)
 
 def home(request):
-    return HttpResponse("This is home")
+    return render(request,'Home/mainpage.html')
 
 def login(request):
     return render(request,'Login/login.html')
