@@ -50,11 +50,10 @@ def create_room(request):
     try:
         waiting_room = WaitingRoom(room_name = a,room_id = get_random_id())
         waiting_room.save()
-        context = {'id' : waiting_room.room_id}
-        return render(request,'WaitingRoom/WRhost.html',context)
+        return redirect(reverse('Game:WR_host'))
     except:
         ##return error
-        return redirect(reverse("Game:login_host"))
+        return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
