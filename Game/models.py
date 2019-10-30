@@ -18,8 +18,12 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
-class WaitingRoom:
-    room_name = models.CharField(max_length = 6)
+class WaitingRoom(models.Model):
+    room_name = models.CharField(max_length = 20)
+    room_id = models.IntegerField()
+    class Meta:
+        unique_together = ["room_name", "room_id"]
     def __str__(self):
         return room_name
+    
     

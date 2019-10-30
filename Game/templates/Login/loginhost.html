@@ -56,11 +56,12 @@
                 <div class="card">
                     <div class="card-header">Create room</div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="" method="post">
+                            {% csrf_token %}
                             <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Room's name</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" name="roomName" required placeholder="Enter your name">{{room_name}}</input>
+                                        <input class="form-control" name="roomName" required placeholder="Enter your name">
                                     </div>
                                 </div>
                             <div class="form-group row">
@@ -96,7 +97,7 @@
 
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-info">
+                                <button type="submit" class="btn btn-info" href = "create/<str:try_room_name>/">
                                     Create
                                 </button>
                                 <a href="http://127.0.0.1:8000/login/" class="btn btn-secondary">

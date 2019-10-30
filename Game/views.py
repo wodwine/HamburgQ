@@ -4,16 +4,16 @@ from .models import Quiz,Question,WaitingRoom
 from django.contrib.auth import logout
 from random import randint
 
-def get_random_name():
+def get_random_id():
         new_name = ""
         for times in range(6):
-            new_name += str(randint(1,9))
-        try:
-            WaitingRoom.objects.filter(question_text__startswith='new_name')
-        except:
+            new_name += randint(1,9)
+        query = WaitingRoom.objects.filter(room_id = new_name)
+        if len(query) == 0:
             return new_name
         else:
-            get_random_name()
+            get_random_id()
+
 
 def hi(request):
     return HttpResponse('hi')
@@ -40,10 +40,22 @@ def login(request):
     return render(request,'Login/login.html')
 
 def login_host(request):
-    new_name = get_random_name()
-    context = {'room_name':new_name}
-    return render(request,'Login/loginhost.html',context)
+    return render(request,'Login/loginhost.html')
 
+def create_room(request,try_room_name):
+
+    try:
+        waiting_room = WaitingRoom(room_name = try_room_name,room_id = get_random_id())
+        waiting_room.save()
+    except:
+        ##create room
+        waiting_room = WaitingRoom(room_name = try_room_name,room_id = get_random_id())
+        waiting_room.save()
+        destiation = '/WRhost/' + waiting_room.room_id + '/'
+        return redirect(destiation)
+    else:
+        ##return error
+        return redirect('login/host')
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
