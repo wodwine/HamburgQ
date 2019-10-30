@@ -47,15 +47,12 @@ def login_host(request):
 def create_room(request):
 
     a = request.POST['roomName']
-
     try:
         waiting_room = WaitingRoom(room_name = a,room_id = get_random_id())
         waiting_room.save()
+        context = {'id' : waiting_room.room_id}
+        return render(request,'WaitingRoom/WRhost.html',context)
     except:
-        ##create room
-        destiation = '/WRhost/' + str(waiting_room.room_id) + '/'
-        return redirect(destiation)
-    else:
         ##return error
         return redirect(reverse("Game:login_host"))
 def login_guest(request):

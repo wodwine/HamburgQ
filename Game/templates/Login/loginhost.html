@@ -56,7 +56,7 @@
                 <div class="card">
                     <div class="card-header">Create room</div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action= {% url 'Game:create_room' %} method="post">
                             {% csrf_token %}
                             <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Room's name</label>
@@ -97,10 +97,7 @@
 
 
                             <div class="col-md-6 offset-md-4">
-                                <input type="submit" value="Create">
-                                <!-- <a class="btn btn-info" href = "{% url 'Game:create_room' 'Wine'%}">
-                                    Create
-                                </a> -->
+                                <input class="btn btn-info" type="submit" value="Create">
                                 <a href="http://127.0.0.1:8000/login/" class="btn btn-secondary">
                                     Back
                                 </a>
