@@ -20,9 +20,7 @@ class Choice(models.Model):
 
 class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
-    room_id = models.IntegerField()
-    class Meta:
-        unique_together = ["room_name", "room_id"]
+    room_id = models.IntegerField(unique = True)
     def __str__(self):
         return room_name
     

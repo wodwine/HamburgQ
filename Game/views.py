@@ -3,11 +3,13 @@ from django.http import HttpResponse
 from .models import Quiz,Question,WaitingRoom
 from django.contrib.auth import logout
 from random import randint
+from django.urls import reverse
 
 def get_random_id():
         new_name = ""
         for times in range(6):
-            new_name += randint(1,9)
+            new_name += str(randint(1,9))
+        new_name = int(new_name)
         query = WaitingRoom.objects.filter(room_id = new_name)
         if len(query) == 0:
             return new_name
@@ -45,17 +47,17 @@ def login_host(request):
 def create_room(request,try_room_name):
 
     try:
+        print('tried')
         waiting_room = WaitingRoom(room_name = try_room_name,room_id = get_random_id())
         waiting_room.save()
+        print(waiting_room)
     except:
         ##create room
-        waiting_room = WaitingRoom(room_name = try_room_name,room_id = get_random_id())
-        waiting_room.save()
-        destiation = '/WRhost/' + waiting_room.room_id + '/'
+        destiation = '/WRhost/' + str(waiting_room.room_id) + '/'
         return redirect(destiation)
     else:
         ##return error
-        return redirect('login/host')
+        return redirect(reverse("Game:login_host"))
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
