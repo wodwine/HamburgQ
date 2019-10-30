@@ -44,13 +44,13 @@ def login(request):
 def login_host(request):
     return render(request,'Login/loginhost.html')
 
-def create_room(request,try_room_name):
+def create_room(request):
+
+    a = request.POST['roomName']
 
     try:
-        print('tried')
-        waiting_room = WaitingRoom(room_name = try_room_name,room_id = get_random_id())
+        waiting_room = WaitingRoom(room_name = a,room_id = get_random_id())
         waiting_room.save()
-        print(waiting_room)
     except:
         ##create room
         destiation = '/WRhost/' + str(waiting_room.room_id) + '/'
