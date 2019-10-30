@@ -1,2 +1,2 @@
- Django >= 2.1.2
- python-decouple >= 3.1
+python-social-auth[django]
+psycopg2

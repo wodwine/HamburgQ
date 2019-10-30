@@ -26,7 +26,11 @@ SECRET_KEY = '@g)12(u=gl-^#k8zy!q-oi1h#!z@73$%(brf7y9-%(0gb0st+j'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'bZXtMreLAIGC0Y5cD6MGGuzB'
+LOGIN_REDIRECT_URL = '/login/host'
 
 # Application definition
 
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +86,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

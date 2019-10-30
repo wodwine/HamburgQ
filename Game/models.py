@@ -17,3 +17,11 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     def __str__(self):
         return self.choice_text
+
+class WaitingRoom(models.Model):
+    room_name = models.CharField(max_length = 20)
+    room_id = models.IntegerField(unique = True)
+    def __str__(self):
+        return room_name
+    
+    
