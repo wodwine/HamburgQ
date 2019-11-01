@@ -12,8 +12,9 @@ urlpatterns = [
     path('login/host/',views.login_host,name = "login_host"),
     path('create/',views.create_room,name = 'create_room'),
     path('login/guest',views.login_guest,name = 'login_guest'),
+    path('guestredirect/',views.redirdirect_guest,name= 'redirect_guest'),
     path('WRhost/<int:RoomId>/',views.waiting_room_host,name = 'WR_host'),
-    path('WRguest/<str:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
+    path('WRguest/<int:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
     path('test/', views.hi),
     path('play/<str:quiz_name>/<int:question_number>/',views.play_quiz,name = "play_quiz"),
 ]

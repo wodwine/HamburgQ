@@ -60,16 +60,7 @@ def login_host(request):
 
     return render(request,'Login/loginhost.html',context)
 
-def page_objects(request):
-  if request.method == 'POST':
-    form = YourForm(request.POST)
-
-    if form.is_valid():
-      answer = form.cleaned_data['value']
-      print(answer)
-
 def create_room(request):
-
     get_name = request.POST['roomName']
     get_type = Quiz.objects.filter(quizz_name = request.POST['quiz_name'])[0]
     get_time = request.POST['time']
@@ -81,8 +72,15 @@ def create_room(request):
     except:
         ##return error
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
+
 def login_guest(request):
     return render(request,'Login/loginguest.html')
+
+def redirdirect_guest(request):
+    get_code = request.POST['roomCode']
+    get_name = request.POST['playerName']
+    return redirect
+
 
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)

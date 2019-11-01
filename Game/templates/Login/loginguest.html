@@ -49,11 +49,12 @@
                 <div class="card">
                     <div class="card-header">Login room</div>
                     <div class="card-body">
-                        <form action="" method="">
+                            <form action= "{% url 'Game:redirect_guest' %}" method="post">
+                                    {% csrf_token %}
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Room</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="email-address" required autofocus placeholder="Enter yout access code">
+                                    <input type="text" class="form-control" name="roomCode" required autofocus placeholder="Enter yout access code">
                                 </div>
                             </div>
 
@@ -65,9 +66,7 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-info">
-                                    Login
-                                </button>
+                                    <input class="btn btn-success" type="submit" value="Login">
                                 <a href="http://127.0.0.1:8000/login/" class="btn btn-secondary">
                                     Back
                                 </a>
