@@ -6,18 +6,6 @@ from random import randint
 from django.urls import reverse
 from django.views import generic
 
-
-# class IndexView(generic.ListView):
-#     template_name = 'Login/loginhost.html'
-#     context_object_name = 'latest_quiz_list'
-
-#     def get_queryset(self):
-#         """
-#         Return the last five published questions (not including those set to be
-#         published in the future).
-#         """
-#         return Quiz.quizz_name
-
 def get_random_id():
         new_name = ""
         for times in range(6):
@@ -70,6 +58,7 @@ def create_room(request):
     except:
         ##return error
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
+
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
