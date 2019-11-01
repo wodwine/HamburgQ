@@ -60,14 +60,6 @@ def login_host(request):
 
     return render(request,'Login/loginhost.html',context)
 
-def page_objects(request):
-  if request.method == 'POST':
-    form = YourForm(request.POST)
-
-    if form.is_valid():
-      answer = form.cleaned_data['value']
-      print(answer)
-
 def create_room(request):
 
     a = request.POST['roomName']
