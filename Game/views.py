@@ -70,9 +70,12 @@ def page_objects(request):
 
 def create_room(request):
 
-    a = request.POST['roomName']
+    get_name = request.POST['roomName']
+    get_type = Quiz.objects.filter(quizz_name = request.POST['quiz_name'])[0]
+    get_time = request.POST['time']
+
     try:
-        waiting_room = WaitingRoom(room_name = a,room_id = get_random_id())
+        waiting_room = WaitingRoom(room_name = get_name,room_id = get_random_id(),quiz_type = get_type,time = get_time)
         waiting_room.save()
         return redirect(reverse('Game:WR_host'))
     except:

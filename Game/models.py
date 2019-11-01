@@ -21,6 +21,9 @@ class Choice(models.Model):
 class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
     room_id = models.IntegerField(unique = True)
+    quiz_type = models.ForeignKey(Quiz,on_delete= models.CASCADE,null = True)
+    time = models.IntegerField()
+
     def __str__(self):
         return room_name
     

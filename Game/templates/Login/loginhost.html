@@ -73,9 +73,9 @@
                                 <div class="col-md-6">      
                                         <div class="dropdown">
                                                 {% if quiz %}
-                                                <select class="btn btn-info dropdown-toggle">
+                                                <select class="btn btn-info dropdown-toggle" name = "quiz_name">
                                                     {% for q in quiz %}
-                                                    <option>{{ q.quizz_name }}</option>
+                                                    <option value = "{{ q.quizz_name }}">{{ q.quizz_name }}</option>
                                                     {% endfor %}
                                                 </select>
                                                 {% else %}
@@ -89,7 +89,7 @@
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Time/Question</label>
                                     <div class="col-md-6">
                                             <div class="dropdown">
-                                                    <select class="btn btn-info dropdown-toggle">
+                                                    <select class="btn btn-info dropdown-toggle" name = "time">
                                                         <option value="5">5</option>
                                                         <option value="10">10</option>
                                                         <option value="15">15</option>
