@@ -1,0 +1,2 @@
+python-social-auth[django]
+psycopg2
