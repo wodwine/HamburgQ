@@ -53,11 +53,11 @@
                                         <form action="" method="">
                                             <div class="form-group row">
                                                     <div class="col-md-4 offset-md-4">
-                                                            <a href="http://127.0.0.1:8000/login/" target="_self" class="btn btn-info btn-md">Start</a>
+                                                            <a href="http://127.0.0.1:8000/login" target="_self" class="btn btn-info btn-md">Start</a>
                                                             <br></br>
-                                                            <a href="http://127.0.0.1:8000/howtoplay/" target="_self" class="btn btn-info btn-md">How to play</a>
+                                                            <a href="{% url "Game:how_to_play"%}" target="_self" class="btn btn-info btn-md">How to play</a>
                                                             <br></br>
-                                                            <a href="http://127.0.0.1:8000/contact/" target="_self" class="btn btn-info btn-md">Contact us</a>
+                                                            <a href="{% url "Game:contact_us"%}"target="_self" class="btn btn-info btn-md">Contact us</a>
                                                     </div>
                                             </div>
                                         </div>
