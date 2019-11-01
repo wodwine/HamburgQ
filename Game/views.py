@@ -6,15 +6,15 @@ from random import randint
 from django.urls import reverse
 
 def get_random_id():
-        new_name = ""
-        for times in range(6):
-            new_name += str(randint(1,9))
-        new_name = int(new_name)
-        query = WaitingRoom.objects.filter(room_id = new_name)
-        if len(query) == 0:
-            return new_name
-        else:
-            get_random_id()
+    new_name = ""
+    for times in range(6):
+        new_name += str(randint(1,9))
+    new_name = int(new_name)
+    query = WaitingRoom.objects.filter(room_id = new_name)
+    if len(query) == 0:
+        return new_name
+    else:
+        get_random_id()
 
 
 def hi(request):
