@@ -6,6 +6,18 @@ from random import randint
 from django.urls import reverse
 from django.views import generic
 
+
+# class IndexView(generic.ListView):
+#     template_name = 'Login/loginhost.html'
+#     context_object_name = 'latest_quiz_list'
+
+#     def get_queryset(self):
+#         """
+#         Return the last five published questions (not including those set to be
+#         published in the future).
+#         """
+#         return Quiz.quizz_name
+
 def get_random_id():
         new_name = ""
         for times in range(6):
@@ -48,6 +60,14 @@ def login_host(request):
 
     return render(request,'Login/loginhost.html',context)
 
+def page_objects(request):
+  if request.method == 'POST':
+    form = YourForm(request.POST)
+
+    if form.is_valid():
+      answer = form.cleaned_data['value']
+      print(answer)
+
 def create_room(request):
 
     a = request.POST['roomName']
@@ -58,7 +78,6 @@ def create_room(request):
     except:
         ##return error
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
-
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
