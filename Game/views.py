@@ -95,3 +95,5 @@ def waiting_room_guest(request,RoomId):
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
         context = {'room' : waiting_room,'name' :get_name}
         return render(request,'WaitingRoom/WRguest.html',context)
+    else:
+        return redirect(reverse('Game:login_guest'))
