@@ -90,6 +90,8 @@ def waiting_room_host(request,RoomId):
     return render(request,'WaitingRoom/WRhost.html',context)
 
 def waiting_room_guest(request,RoomId):
-    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-    context = {'room' : waiting_room}
-    return render(request,'WaitingRoom/WRguest.html',context)
+    if request.method == "POST":
+        get_name = request.POST['player_name']
+        waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+        context = {'room' : waiting_room,'name' :get_name}
+        return render(request,'WaitingRoom/WRguest.html',context)

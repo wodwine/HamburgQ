@@ -37,6 +37,7 @@
 
             </div>
         </nav>
+
 </head>
 <body>
 
@@ -49,18 +50,20 @@
                 <div class="card">
                     <div class="card-header">Login room</div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="game/" method="post" id = "from_guest" >
+                            {% csrf_token %}
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Room</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="email-address" required autofocus placeholder="Enter yout access code">
+                                    <input type="text" class="form-control" name="room_id" required autofocus placeholder="Enter yout access code"
+                                    id="roomName" onkeyup="updateAction()">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label  class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" name="playerName" required placeholder="Enter your name">
+                                    <input class="form-control" required placeholder="Enter your name" name = "player_name">
                                 </div>
                             </div>
 
@@ -81,6 +84,13 @@
     </div>
 
 </main>
+<script>
+function updateAction()
+{
+    var redirect = "http://127.0.0.1:8000/WRguest/" + document.getElementById("roomName").value +"/";
+    document.getElementById("from_guest").action = redirect;
+}
+</script>
 
 
 
