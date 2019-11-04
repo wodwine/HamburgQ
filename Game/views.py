@@ -81,7 +81,6 @@ def redirdirect_guest(request):
     get_name = request.POST['playerName']
     return redirect
 
-
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     context = {'room' : waiting_room}
