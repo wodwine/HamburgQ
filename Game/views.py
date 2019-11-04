@@ -71,7 +71,8 @@ def redirdirect_guest(request):
 
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-    context = {'room' : waiting_room}
+    all_player = Player.objects.filter(room_id_player = RoomId)
+    context = {'room' : waiting_room,'all_player':all_player}
     return render(request,'WaitingRoom/WRhost.html',context)
 
 def waiting_room_guest(request,RoomId):
@@ -79,14 +80,12 @@ def waiting_room_guest(request,RoomId):
         get_name = request.POST['player_name']
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
         try:
-            Player.objects.filter(player_name = get_name)
-        except:
-            pass
-        else:
             player= Player(player_name=str(get_name),room_id_player = RoomId)
             player.save()
+        except:
+            pass
         all_player = Player.objects.filter(room_id_player = RoomId)
-        context = {'room' : waiting_room,'all_player' : all_player}
+        context = {'room' : waiting_room,'all_player' : all_player,'current_player':get_name}
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
         return redirect(reverse('Game:login_guest'))
