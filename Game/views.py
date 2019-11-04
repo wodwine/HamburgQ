@@ -1,22 +1,11 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
-from .models import Quiz,Question,WaitingRoom
+from .models import Quiz,Question,WaitingRoom,Player
 from django.contrib.auth import logout
 from random import randint
 from django.urls import reverse
 from django.views import generic
 
-
-# class IndexView(generic.ListView):
-#     template_name = 'Login/loginhost.html'
-#     context_object_name = 'latest_quiz_list'
-
-#     def get_queryset(self):
-#         """
-#         Return the last five published questions (not including those set to be
-#         published in the future).
-#         """
-#         return Quiz.quizz_name
 
 def get_random_id():
         new_name = ""
@@ -64,7 +53,6 @@ def create_room(request):
     get_name = request.POST['roomName']
     get_type = Quiz.objects.filter(quizz_name = request.POST['quiz_name'])[0]
     get_time = request.POST['time']
-
     try:
         waiting_room = WaitingRoom(room_name = get_name,room_id = get_random_id(),quiz_type = get_type,time = get_time)
         waiting_room.save()
@@ -90,7 +78,15 @@ def waiting_room_guest(request,RoomId):
     if request.method == "POST":
         get_name = request.POST['player_name']
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-        context = {'room' : waiting_room,'name' :get_name}
+        try:
+            Player.objects.filter(player_name = get_name)
+        except:
+            pass
+        else:
+            player= Player(player_name=str(get_name),room_id_player = RoomId)
+            player.save()
+        all_player = Player.objects.filter(room_id_player = RoomId)
+        context = {'room' : waiting_room,'all_player' : all_player}
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
         return redirect(reverse('Game:login_guest'))

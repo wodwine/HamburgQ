@@ -22,9 +22,15 @@ class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
     room_id = models.IntegerField(unique = True)
     quiz_type = models.ForeignKey(Quiz,on_delete= models.CASCADE,null = True)
-    time = models.IntegerField()
-
+    time = models.IntegerField(null=True)
+    player = []
     def __str__(self):
         return room_name
+
+class Player(models.Model):
+    player_name = models.CharField(max_length = 20)
+    room_id_player = models.IntegerField()
+    def __str__(self):
+        return player_name
     
     
