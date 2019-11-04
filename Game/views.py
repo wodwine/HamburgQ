@@ -19,7 +19,7 @@ def get_random_id():
             get_random_id()
 
 
-def hi(request):
+def admin(request):
     return HttpResponse('hi')
     
 def play_quiz(request, quiz_name, question_number):
