@@ -29,9 +29,14 @@
                 <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/home" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
+                {% if user.is_authenticated %}
+                <h>{{user.username}}</h>
+                <a href="{% url "Game:log_out"%}">Logout</a>
+                {% else %}
                 <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/admin" target="_self">
                     admin
                 </a>
+                {% endif %}
 
                 </div>
 
@@ -81,6 +86,10 @@
                         <div class="card-body">
                             <form action="" method="">
                                     <div class="form-group row">
+                                            <label class="col-md-4 col-form-label text-md-right">Guest:</label>
+                                            <div class="col-md-6">
+                                                <h3>{{user.username}}</h3>
+                                            </div>
                                             {% for player in all_player%}
                                             <label class="col-md-4 col-form-label text-md-right">Player:</label>
                                             <div class="col-md-6">
