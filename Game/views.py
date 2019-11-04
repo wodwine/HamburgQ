@@ -79,11 +79,12 @@ def waiting_room_guest(request,RoomId):
     if request.method == "POST":
         get_name = request.POST['player_name']
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-        try:
+        player_list = []
+        for i in Player.objects.filter(room_id_player = RoomId):
+            player_list.append(i.player_name)
+        if get_name not in player_list:
             player= Player(player_name=str(get_name),room_id_player = RoomId)
             player.save()
-        except:
-            pass
         all_player = Player.objects.filter(room_id_player = RoomId)
         context = {'room' : waiting_room,'all_player' : all_player,'current_player':get_name}
         return render(request,'WaitingRoom/WRguest.html',context)

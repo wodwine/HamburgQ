@@ -28,7 +28,7 @@ class WaitingRoom(models.Model):
         return room_name
 
 class Player(models.Model):
-    player_name = models.CharField(max_length = 20,unique = True)
+    player_name = models.CharField(max_length = 20)
     room_id_player = models.IntegerField()
     def __str__(self):
         return player_name
