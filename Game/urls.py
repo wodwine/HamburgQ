@@ -16,5 +16,5 @@ urlpatterns = [
     path('guestredirect/',views.redirdirect_guest,name= 'redirect_guest'),
     path('WRhost/<int:RoomId>/',views.waiting_room_host,name = 'WR_host'),
     path('WRguest/<int:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
-    path('play/<str:quiz_name>/<int:question_number>/',views.play_quiz,name = "play_quiz"),
+    path('play/<int:RoomId>/',views.start_quiz, name = "start_quiz"),
 ]

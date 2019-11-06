@@ -8,24 +8,19 @@ from django.views import generic
 
 
 def get_random_id():
-        new_name = ""
-        for times in range(6):
-            new_name += str(randint(1,9))
-        new_name = int(new_name)
-        query = WaitingRoom.objects.filter(room_id = new_name)
-        if len(query) == 0:
-            return new_name
-        else:
-            get_random_id()
+    new_name = ""
+    for times in range(6):
+        new_name += str(randint(1,9))
+    new_name = int(new_name)
+    query = WaitingRoom.objects.filter(room_id = new_name)
+    if len(query) == 0:
+        return new_name
+    else:
+        get_random_id()
 
 
 def admin(request):
     return HttpResponse('admin')
-    
-def play_quiz(request, quiz_name, question_number):
-    quiz = get_object_or_404(Quiz, quizz_name = quiz_name)
-    q = {'question':quiz.question_set.all()[question_number-1]}
-    return render(request,'Game/question_play.html',q)
 
 def home(request):
     return render(request,'Home/mainpage.html')
@@ -46,7 +41,6 @@ def login(request):
 def login_host(request):
     quiz = Quiz.objects.all()
     context = {'quiz':quiz}
-
     return render(request,'Login/loginhost.html',context)
 
 def create_room(request):
@@ -93,3 +87,7 @@ def waiting_room_guest(request,RoomId):
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
         return redirect(reverse('Game:login_guest'))
+
+def start_quiz(request,RoomId):
+    context = {'RoomId':RoomId}
+    return render(request, 'Game/play.html', context)

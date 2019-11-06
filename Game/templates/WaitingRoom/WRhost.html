@@ -70,9 +70,9 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-info">
+                                <a class="btn btn-success" style="color:white" href="{% url "Game:start_quiz" room.room_id %}">
                                     Start
-                                </button>
+                                </a>
                                 <a href="{% url "Game:login" %}" class="btn btn-secondary">
                                     Cancel
                                 </a>
