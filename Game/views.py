@@ -20,7 +20,7 @@ def get_random_id():
 
 
 def admin(request):
-    return HttpResponse('hi')
+    return HttpResponse('admin')
     
 def play_quiz(request, quiz_name, question_number):
     quiz = get_object_or_404(Quiz, quizz_name = quiz_name)
@@ -54,7 +54,10 @@ def create_room(request):
     get_type = Quiz.objects.filter(quizz_name = request.POST['quiz_name'])[0]
     get_time = request.POST['time']
     try:
-        waiting_room = WaitingRoom(room_name = get_name,room_id = get_random_id(),quiz_type = get_type,time = get_time)
+        room_unique_id = get_random_id()
+        waiting_room = WaitingRoom(room_name = get_name,room_id = room_unique_id,quiz_type = get_type,time = get_time)
+        host = Player(player_name=str(request.user.username),room_id_player = room_unique_id)
+        host.save()
         waiting_room.save()
         return redirect(reverse('Game:WR_host'))
     except:
@@ -72,7 +75,7 @@ def redirdirect_guest(request):
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     all_player = Player.objects.filter(room_id_player = RoomId)
-    context = {'room' : waiting_room,'all_player':all_player}
+    context = {'room' : waiting_room,'all_player':all_player, 'round':1}
     return render(request,'WaitingRoom/WRhost.html',context)
 
 def waiting_room_guest(request,RoomId):

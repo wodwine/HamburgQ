@@ -29,7 +29,7 @@
                 <a class="navbar-brand waves-effect" href="{% url "Game:home" %}" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
-                <a class="navbar-brand waves-effect" href="{% url "Game:admin" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url "Game:home" %}" target="_self">
                     admin
                 </a>
 
@@ -39,7 +39,7 @@
         </nav>
 
 </head>
-<body>
+<body onload = getPath()>
 
 <main class="login-form">
     <div class="container">
@@ -83,9 +83,14 @@
 
 </main>
 <script>
+
+var path;
+function getPath(){
+    path = "{%url 'Game:WR_guest' 0 %} ".substring(0,"{%url 'Game:WR_guest' 0 %} ".length -3)
+}
 function updateAction()
 {
-    var redirect = "http://127.0.0.1:8000/WRguest/" + document.getElementById("roomName").value +"/";
+    var redirect = path + document.getElementById("roomName").value +"/";
     document.getElementById("from_guest").action = redirect;
 }
 </script>

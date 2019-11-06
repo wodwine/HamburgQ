@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'Game'
 urlpatterns = [
+    path('',views.home),
     path('admin/',views.admin,name="admin"),
     path('home/',views.home,name="home"),
     path('logout/',views.log_out,name="log_out"),
