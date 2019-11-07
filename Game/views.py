@@ -5,6 +5,7 @@ from django.contrib.auth import logout
 from random import randint
 from django.urls import reverse
 from django.views import generic
+import sqlite3
 
 
 def get_random_id():
@@ -18,16 +19,11 @@ def get_random_id():
     else:
         get_random_id()
 
-
 def admin(request):
     return HttpResponse('admin')
 
 def home(request):
     return render(request,'Home/mainpage.html')
-
-def log_out(request):
-    logout(request)
-    return redirect('Game:home')
 
 def how_to_play(request):
     return render(request,'Home/htp.html')
@@ -36,12 +32,6 @@ def contact_us(request):
     return render(request,'Home/contact.html')
 
 def login(request):
-    return render(request,'Login/login.html')
-
-def log_out_host(request):
-    return render(request,'Login/login.html')
-
-def log_out_guest(request):
     return render(request,'Login/login.html')
 
 def login_host(request):
@@ -97,3 +87,15 @@ def waiting_room_guest(request,RoomId):
 def start_quiz(request,RoomId):
     context = {'RoomId':RoomId}
     return render(request, 'Game/play.html', context)
+
+def log_out(request):
+    logout(request)
+    return redirect('Game:home')
+
+def log_out_host(request):
+    return render(request,'Login/login.html')
+
+def log_out_guest(request):
+    instance = Player.objects.get(id=53)
+    instance.delete()
+    return render(request,'Login/login.html')
