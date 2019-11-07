@@ -69,7 +69,7 @@ def redirdirect_guest(request):
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     all_player = Player.objects.filter(room_id_player = RoomId)
-    context = {'room' : waiting_room,'all_player':all_player, 'round':1}
+    context = {'room' : waiting_room,'all_player':all_player}
     return render(request,'WaitingRoom/WRhost.html',context)
 
 def waiting_room_guest(request,RoomId):

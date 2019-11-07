@@ -21,7 +21,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title>Waiting Room</title>
+    <title>Play Room</title>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
@@ -70,10 +70,10 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <a class="btn btn-success" style="color:white" href="{% url "Game:start_quiz" room.room_id %}">
+                                <a class="btn btn-success" style="color:white" href="{% url 'Game:start_quiz' room.room_id %}">
                                     Start
                                 </a>
-                                <a href="{% url "Game:login" %}" class="btn btn-secondary">
+                                <a href="{% url 'Game:login' %}" class="btn btn-secondary">
                                     Cancel
                                 </a>
                             </div>
