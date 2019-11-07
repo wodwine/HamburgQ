@@ -26,14 +26,14 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
 
-                <a class="navbar-brand waves-effect" href="{% url "Game:home" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
                 {% if user.is_authenticated %}
                 <h>{{user.username.title}}</h>
-                <a href="{% url "Game:log_out"%}">Logout</a>
+                <a href="{% url 'Game:log_out' %}">Logout</a>
                 {% else %}
-                <a class="navbar-brand waves-effect" href="{% url "Game:admin" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
                     admin
                 </a>
                 {% endif %}
@@ -70,10 +70,10 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <a class="btn btn-success" style="color:white" href="{% url 'Game:start_quiz' room.room_id %}">
+                                <a class="btn btn-success" style="color:white" href="{% url 'Game:start_quiz' room.room_id  %}">
                                     Start
                                 </a>
-                                <a href="{% url 'Game:login' %}" class="btn btn-secondary">
+                                <a href="{% url 'Game:log_out_host' %}" class="btn btn-secondary">
                                     Cancel
                                 </a>
                             </div>
@@ -89,7 +89,7 @@
                                             {% for player in all_player%}
                                             <label class="col-md-4 col-form-label text-md-right">Player:</label>
                                             <div class="col-md-6">
-                                                <h3>{{player.player_name}}</h3>
+                                                <h3>{{player.player_name.title}}</h3>
                                             </div>
                                             {% endfor %}
                                         </div>

@@ -26,11 +26,11 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
 
-                <a class="navbar-brand waves-effect" href="{% url "Game:home" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
                 <h>{{current_player.title}}</h>
-                <a class="navbar-brand waves-effect" href="{% url "Game:admin" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
                     admin
                 </a>
 
@@ -65,11 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 offset-md-4">
-                                <a href="{% url "Game:login" %}" class="btn btn-secondary">
-                                    Cancel
-                                </a>
-                            </div>
+                           
                     </div>
                     </form>
                 </div>
@@ -86,12 +82,18 @@
                                     {% for player in all_player%}
                                     <label class="col-md-4 col-form-label text-md-right">Player:</label>
                                     <div class="col-md-6">
-                                        <h3>{{player.player_name}}</h3>
+                                        <h3>{{player.player_name.title}}</h3>
                                     </div>
                                     {% endfor %}
                                 </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <a href="{% url 'Game:log_out_guest' %}" class="btn btn-secondary">
+                                        Cancel
+                                    </a>
+                                </div>
                         </div>
                         </form>
+                        
                     </div>
             </div>
         </div>

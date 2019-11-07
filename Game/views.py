@@ -38,6 +38,12 @@ def contact_us(request):
 def login(request):
     return render(request,'Login/login.html')
 
+def log_out_host(request):
+    return render(request,'Login/login.html')
+
+def log_out_guest(request):
+    return render(request,'Login/login.html')
+
 def login_host(request):
     quiz = Quiz.objects.all()
     context = {'quiz':quiz}

@@ -27,9 +27,9 @@
                 </a>
                 {% if user.is_authenticated %}
                 <h>{{user.username.title}}</h>
-                <a href="{% url "Game:log_out"%}">Logout</a>
+                <a href="{% url 'Game:log_out' %}">Logout</a>
                 {% else %}
-                <a class="navbar-brand waves-effect" href="{% url "Game:admin" %}" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
                     admin
                 </a>
                 {% endif %}
@@ -53,11 +53,11 @@
                                         <form action="" method="">
                                             <div class="form-group row">
                                                     <div class="col-md-4 offset-md-4">
-                                                            <a href={% url 'Game:login' %} target="_self" class="btn btn-info btn-md">Start</a>
+                                                            <a href="{% url 'Game:login' %}" target="_self" class="btn btn-info btn-md">Start</a>
                                                             <br></br>
-                                                            <a href="{% url "Game:how_to_play"%}" target="_self" class="btn btn-info btn-md">How to play</a>
+                                                            <a href="{% url 'Game:how_to_play' %}" target="_self" class="btn btn-info btn-md">How to play</a>
                                                             <br></br>
-                                                            <a href="{% url "Game:contact_us"%}"target="_self" class="btn btn-info btn-md">Contact us</a>
+                                                            <a href="{% url 'Game:contact_us' %}"target="_self" class="btn btn-info btn-md">Contact us</a>
                                                     </div>
                                             </div>
                                         </div>
