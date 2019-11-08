@@ -73,7 +73,7 @@
                                 <a class="btn btn-success" style="color:white" href="{% url 'Game:start_quiz' room.room_id  %}">
                                     Start
                                 </a>
-                                <a href="{% url 'Game:log_out_host' %}" class="btn btn-secondary">
+                                <a href="{% url 'Game:log_out_host' room.room_id %}" class="btn btn-secondary">
                                     Cancel
                                 </a>
                             </div>

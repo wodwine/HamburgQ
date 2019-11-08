@@ -76,10 +76,12 @@ def waiting_room_guest(request,RoomId):
         for i in Player.objects.filter(room_id_player = RoomId):
             player_list.append(i.player_name)
         if get_name not in player_list:
-            player= Player(player_name=str(get_name),room_id_player = RoomId)
+            player = Player(player_name=str(get_name),room_id_player = RoomId)
             player.save()
-        all_player = Player.objects.filter(room_id_player = RoomId)
-        context = {'room' : waiting_room,'all_player' : all_player,'current_player':get_name}
+        else:
+            return redirect(reverse("Game:login_guest"))
+        all_player = Player.objects.filter(room_id_player = RoomId) 
+        context = {'room' : waiting_room,'all_player' : all_player,'current_player':player}
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
         return redirect(reverse('Game:login_guest'))
@@ -92,10 +94,12 @@ def log_out(request):
     logout(request)
     return redirect('Game:home')
 
-def log_out_host(request):
-    return render(request,'Login/login.html')
-
-def log_out_guest(request):
-    instance = Player.objects.get(id=53)
+def log_out_host(request,roomid):
+    instance = WaitingRoom.objects.get(room_id=roomid)
     instance.delete()
-    return render(request,'Login/login.html')
+    return redirect(reverse('Game:login_host'))
+
+def log_out_guest(request,player_id):
+    instance = Player.objects.get(id=player_id)
+    instance.delete()
+    return redirect(reverse('Game:login_guest'))
