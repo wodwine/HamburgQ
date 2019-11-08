@@ -26,12 +26,17 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
 
-                <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/home" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
-                <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/admin" target="_self">
+                {% if user.is_authenticated %}
+                <h>{{user.username.title}}</h>
+                <a href="{% url 'Game:log_out' %}">Logout</a>
+                {% else %}
+                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
                     admin
                 </a>
+                {% endif %}
 
                 </div>
 
