@@ -41,7 +41,11 @@ def login_host(request):
 
 def create_room(request):
     get_name = request.POST['roomName']
-    get_type = Quiz.objects.filter(quizz_name = request.POST['quiz_name'])[0]
+    try:
+        quiz_name = request.POST['quiz_name']
+    except:
+        return redirect(reverse("Game:login_host"))
+    get_type = Quiz.objects.filter(quizz_name = quiz_name)[0]
     get_time = request.POST['time']
     try:
         room_unique_id = get_random_id()
@@ -49,9 +53,9 @@ def create_room(request):
         host = Player(player_name=str(request.user.username),room_id_player = room_unique_id)
         host.save()
         waiting_room.save()
-        return redirect(reverse('Game:WR_host'))
     except:
-        ##return error
+        return redirect(reverse("Game:login_host"))
+    else:
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
 
 def login_guest(request):
