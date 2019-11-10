@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                        <div class="card-header">{{ quiz.quizz_name }}</div>
+                        <div class="card-header">For Hamburger</div>
                     <div class="card-body">
                         <form action="" method="">
                             <div class="col-md-6 offset-md-8">
@@ -91,13 +91,12 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                        <div class="card-header">{{ room.time }}</div>
+                        <div class="card-header">Player info</div>
                     <div class="card-body">
                         <form action="" method="">
-                            <div class="col-md-6 offset-md-8">
-                                    <a href="{% url 'Game:home' %}" class="btn btn-secondary">
-                                        Back
-                                    </a>
+                            <div class="col-md-12">
+                                    <h6>Player: {{room.time }}</h6>
+                                    <h6>Time/question: {{room.time }}</h6>
                             </div>
                     </div>
                     </form>
