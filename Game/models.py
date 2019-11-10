@@ -13,9 +13,10 @@ class Question(models.Model):
         return self.question_text
 
 class Choice(models.Model):
+    quizz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE,default=0)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    quizz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE,default=0)
+    answer = models.CharField(max_length=5,default="False")
     def __str__(self):
         return self.choice_text
 
