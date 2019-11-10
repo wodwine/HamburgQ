@@ -47,15 +47,34 @@
 <main class="login-form">
     <div class="container">
         <hr class="my-5">
-
+        <h3>Room : {{ room.room_id }}</h3>
         <div class="row justify-content-center">
-            <div class="col-md-5">
+                
+            <div class="col-md-6">
                 <div class="card">
-                        <div class="card-header">{{ RoomId }}</div>
+                        <div class="card-header">Quiz: {{ quiz.quizz_name }}</div>
                     <div class="card-body">
                         <form action="" method="">
-                            <div class="col-md-6 offset-md-10">
-                                    <a href="{% url 'Game:log_out_host' room.room_id %}" class="btn btn-secondary">
+                            {% for question in questions %}
+                                <label class="col-md-4 col-form-label text-md-right">Question: </label>
+                                <h6>{{question.question_text}}</h6>
+                            {% endfor %}
+                            <div class="col-md-6 offset-md-9">
+                                <a href="{% url 'Game:home' %}" class="btn btn-secondary">
+                                    Back
+                                </a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                        <div class="card-header">{{ quiz.quizz_name }}</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="col-md-6 offset-md-9">
+                                    <a href="{% url 'Game:home' %}" class="btn btn-secondary">
                                         Back
                                     </a>
                             </div>
@@ -63,6 +82,20 @@
                     </form>
                 </div>
             </div>
+            <!-- <div class="col-md-4">
+                <div class="card">
+                        <div class="card-header">{{ room.time }}</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="col-md-6 offset-md-9">
+                                    <a href="{% url 'Game:home' %}" class="btn btn-secondary">
+                                        Back
+                                    </a>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div> -->
         </div>
     </div>
     </div>

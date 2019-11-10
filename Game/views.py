@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
-from .models import Quiz,Question,WaitingRoom,Player
+from .models import Quiz,Question,WaitingRoom,Player,Choice
 from django.contrib.auth import logout
 from random import randint
 from django.urls import reverse
@@ -87,7 +87,11 @@ def waiting_room_guest(request,RoomId):
         return redirect(reverse('Game:login_guest'))
 
 def start_quiz(request,RoomId):
-    context = {'RoomId':RoomId}
+    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
+    questions = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
+    choices = Choice.objects.filter(question_id)
+    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions}
     return render(request, 'Game/play.html', context)
 
 def log_out(request):
