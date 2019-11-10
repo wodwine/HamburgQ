@@ -56,24 +56,31 @@
                     <div class="card-body">
                         <form action="" method="">
                             {% for question in questions %}
-                                <label class="col-md-4 col-form-label text-md-right">Question: </label>
-                                <h6>{{question.question_text}}</h6>
+                                <label class="col-md-12"><h6>{{question.question_text}}</h6></label>
+                                
+                                {% for choice in choices %}
+                                    {% for c in choice %}
+                                    {% if c.question_id == question.id %}
+                                    <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">{{c}}</p></label>
+                                    {% endif %}
+                                {% endfor %}
+                                {% endfor %}
                             {% endfor %}
-                            <div class="col-md-6 offset-md-9">
-                                <a href="{% url 'Game:home' %}" class="btn btn-secondary">
-                                    Back
-                                </a>
-                        </div>
+                            <div class="row justify-content-center">
+                            <div class="col-md-0">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                    </div>
                     </div>
                     </form>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="card">
                         <div class="card-header">{{ quiz.quizz_name }}</div>
                     <div class="card-body">
                         <form action="" method="">
-                            <div class="col-md-6 offset-md-9">
+                            <div class="col-md-6 offset-md-8">
                                     <a href="{% url 'Game:home' %}" class="btn btn-secondary">
                                         Back
                                     </a>
@@ -82,12 +89,12 @@
                     </form>
                 </div>
             </div>
-            <!-- <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card">
                         <div class="card-header">{{ room.time }}</div>
                     <div class="card-body">
                         <form action="" method="">
-                            <div class="col-md-6 offset-md-9">
+                            <div class="col-md-6 offset-md-8">
                                     <a href="{% url 'Game:home' %}" class="btn btn-secondary">
                                         Back
                                     </a>
@@ -95,7 +102,7 @@
                     </div>
                     </form>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     </div>
