@@ -13,15 +13,27 @@ class Question(models.Model):
         return self.question_text
 
 class Choice(models.Model):
+    quizz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE,default=0)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
+    answer = models.CharField(max_length=5,default="False")
     def __str__(self):
         return self.choice_text
 
 class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
     room_id = models.IntegerField(unique = True)
+    quiz_type = models.ForeignKey(Quiz,on_delete= models.CASCADE,null = True)
+    time = models.IntegerField(null=True)
+    player = []
     def __str__(self):
         return room_name
+
+class Player(models.Model):
+    player_name = models.CharField(max_length = 20)
+    room_id_player = models.IntegerField()
+    score = models.IntegerField(default=0)
+    def __str__(self):
+        return player_name
     
     

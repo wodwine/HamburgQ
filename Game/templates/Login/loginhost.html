@@ -1,6 +1,10 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <!doctype html>
@@ -26,14 +30,14 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
 
-                <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/home" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
                     <strong>HamBurgQ</strong>
                 </a>
                 {% if user.is_authenticated %}
-                <h>{{user.username}}</h>
-                <a href="{% url "Game:log_out"%}">Logout</a>
+                <h>{{user.username.title}}</h>
+                <a href="{% url 'Game:log_out' %}">Logout</a>
                 {% else %}
-                <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/admin" target="_self">
+                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
                     admin
                 </a>
                 {% endif %}
@@ -68,12 +72,16 @@
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">Quiz type</label>
                                 <div class="col-md-6">      
                                         <div class="dropdown">
-                                          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Quiz
-                                          <span class="caret"></span></button>
-                                          <ul class="dropdown-menu">
-                                              <!-- add Quiz type later -->
-                                          </ul>
-                                        </div>
+                                                {% if quiz %}
+                                                <select class="btn btn-info dropdown-toggle" name = "quiz_name">
+                                                    {% for q in quiz %}
+                                                    <option value = "{{ q.quizz_name }}">{{ q.quizz_name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                {% else %}
+                                                    <h5>No polls are available.</h5>
+                                                {% endif %}
+                                              </div>
                                     </div>  
                             </div>
 
@@ -81,24 +89,17 @@
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Time/Question</label>
                                     <div class="col-md-6">
                                             <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Time
-                                                    <span class="caret"></span></button>
-                                                    <!-- add time later -->
-                                            </div>
+                                                    <select class="btn btn-info dropdown-toggle" name = "time">
+                                                        <option value="5">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                    </select>
+                                                  </div>
                                         </div>
                             </div>
-
-                            <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Total time</label>
-                                    <div class="col-md-6">
-                                       <h2>Time</h2>
-                                    </div>
-                            </div>
-
-
                             <div class="col-md-6 offset-md-4">
-                                <input class="btn btn-info" type="submit" value="Create">
-                                <a href="http://127.0.0.1:8000/login/" class="btn btn-secondary">
+                                <input class="btn btn-success" type="submit" value="Create">
+                                <a href="{% url 'Game:login' %}" class="btn btn-secondary">
                                     Back
                                 </a>
                             </div>
@@ -111,12 +112,5 @@
     </div>
 
 </main>
-
-
-
-
-
-
-
 </body>
 </html>
