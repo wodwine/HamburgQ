@@ -86,14 +86,14 @@ def waiting_room_guest(request,RoomId):
     else:
         return redirect(reverse('Game:login_guest'))
 
-def start_quiz(request,RoomId):
+def start_quiz(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
     questions = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]
     for q in questions:
         choices_list.append(Choice.objects.filter(question_id=q.id))
-    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list}
+    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list,'current_player':PlayerName}
     return render(request, 'Game/play.html', context)
 
 def log_out(request):
@@ -101,8 +101,10 @@ def log_out(request):
     return redirect('Game:home')
 
 def log_out_host(request,roomid):
-    instance = WaitingRoom.objects.get(room_id=roomid)
-    instance.delete()
+    instance_room = WaitingRoom.objects.get(room_id=roomid)
+    instance_room.delete()
+    instance_player = Player.objects.filter(room_id_player=roomid)
+    instance_player.delete()
     return redirect(reverse('Game:login_host'))
 
 def log_out_guest(request,player_id):
