@@ -52,17 +52,17 @@
                 
             <div class="col-md-6">
                 <div class="card">
-                        <div class="card-header">Quiz: {{ quiz.quizz_name }}</div>
+                        <div class="card-header">Quiz: {{ quiz.quizz_name }} ({{number}})</div>
                     <div class="card-body">
                         <form action="" method="">
                             {% for question in questions %}
-                                <label class="col-md-12"><h6>{{question.question_text}}</h6></label>
+                                <label class="col-md-12"><h6>{{ forloop.counter }}. {{question.question_text}}</h6></label>
                                 {% for choice in choices %}
                                     {% for c in choice %}
                                     {% if c.question_id == question.id %}
                                     <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{c}}">{{c}}</p></label>
                                     {% endif %}
-                                {% endfor %}
+                                    {% endfor %}
                                 {% endfor %}
                             {% endfor %}
                             <div class="row justify-content-center">
@@ -94,7 +94,8 @@
                     <div class="card-body">
                         <form action="" method="">
                             <div class="col-md-12">
-                                    <h6>Player: {{current_player.title }}</h6>
+                                    <h6>Player: {{current_player.player_name.title }}</h6>
+                                    <h6>Score: {{current_player.score }}</h6>
                                     <h6>Time/question: {{room.time }}</h6>
                             </div>
                     </div>

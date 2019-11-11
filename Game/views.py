@@ -91,9 +91,10 @@ def start_quiz(request,RoomId,PlayerName):
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
     questions = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]
+    player = Player.objects.get(player_name=PlayerName,room_id_player=RoomId)
     for q in questions:
         choices_list.append(Choice.objects.filter(question_id=q.id))
-    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list,'current_player':PlayerName}
+    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list,'current_player':player,'number':len(questions)}
     return render(request, 'Game/play.html', context)
 
 def log_out(request):
