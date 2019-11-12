@@ -13,7 +13,6 @@ class Question(models.Model):
         return self.question_text
 
 class Choice(models.Model):
-    quizz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE,default=0)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     answer = models.CharField(max_length=5,default="False")
@@ -27,13 +26,20 @@ class WaitingRoom(models.Model):
     time = models.IntegerField(null=True)
     player = []
     def __str__(self):
-        return room_name
+        return self.room_name
 
 class Player(models.Model):
     player_name = models.CharField(max_length = 20)
-    room_id_player = models.IntegerField()
+    room = models.ForeignKey(WaitingRoom, on_delete=models.CASCADE,null = True)
     score = models.IntegerField(default=0)
+    current_question = models.IntegerField(default=0)
     def __str__(self):
-        return player_name
+        return self.player_name
+    def progress(self):
+        self.current_question += 1
+        self.save()
+    def add_score(self):
+        self.score += 1
+        self.save()
     
     

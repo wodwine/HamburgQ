@@ -54,16 +54,11 @@
                 <div class="card">
                         <div class="card-header">Quiz: {{ quiz.quizz_name }} ({{number}})</div>
                     <div class="card-body">
-                        <form action="" method="">
-                            {% for question in questions %}
-                                <label class="col-md-12"><h6>{{ forloop.counter }}. {{question.question_text}}</h6></label>
-                                {% for choice in choices %}
-                                    {% for c in choice %}
-                                    {% if c.question_id == question.id %}
-                                    <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{c}}">{{c}}</p></label>
-                                    {% endif %}
-                                    {% endfor %}
-                                {% endfor %}
+                        <form action="{% url "Game:submit_answer" %}" method="post">
+                            {% csrf_token %}
+                            <label class="col-md-12"><h6> {{questions.question_text}}</h6></label>
+                            {% for choice in choices %}
+                                <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="radio_answer" value="{{current_player.id}}$${{choice.id}}$${{room.room_id}}">{{choice}}</p></label>
                             {% endfor %}
                             <div class="row justify-content-center">
                             <div class="col-md-0">
