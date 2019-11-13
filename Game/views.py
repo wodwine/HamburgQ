@@ -107,12 +107,17 @@ def get_player_next_question(player):
 def start_quiz(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
-    questions = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
+    question_set = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]
     player = Player.objects.get(player_name=PlayerName,room=waiting_room)
     question = get_player_next_question(player)
+    for pointer in range(len(question_set)):
+        if question == question_set[pointer]:
+            index = pointer
+    dict_question = {'question': question,
+                    'index':index+1}
     choices_list = question.choice_set.all()
-    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list,'current_player':player,'number':len(questions)}
+    context = {'room' : waiting_room , 'quiz':quiz ,'dict_question':dict_question ,'choices':choices_list,'current_player':player,'number':len(question_set)}
     return render(request, 'Game/play.html', context)
 
 def log_out(request):

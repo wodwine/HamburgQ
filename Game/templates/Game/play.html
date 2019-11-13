@@ -52,11 +52,11 @@
                 
             <div class="col-md-6">
                 <div class="card">
-                        <div class="card-header">Quiz: {{ quiz.quizz_name }} ({{number}})</div>
+                        <div class="card-header">Quiz: {{ quiz.quizz_name }} {{dict_question.index}}/{{number}}</div>
                     <div class="card-body">
                         <form action="{% url "Game:submit_answer" %}" method="post">
                             {% csrf_token %}
-                            <label class="col-md-12"><h6> {{questions.question_text}}</h6></label>
+                            <label class="col-md-12"><h6> {{dict_question.question.question_text}} helllo</h6></label>
                             {% for choice in choices %}
                                 <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="radio_answer" value="{{current_player.id}}$${{choice.id}}$${{room.room_id}}">{{choice}}</p></label>
                             {% endfor %}
