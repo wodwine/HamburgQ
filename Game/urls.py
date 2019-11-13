@@ -19,5 +19,6 @@ urlpatterns = [
     path('WRhost/<int:RoomId>/',views.waiting_room_host,name = 'WR_host'),
     path('WRguest/<int:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
     path('play/<int:RoomId>/<str:PlayerName>/',views.start_quiz, name = "start_quiz"),
-    path('score/',views.submit_answer,name = "submit_answer")
+    path('score/',views.submit_answer,name = "submit_answer"),
+    path('result/<int:RoomId>/<str:PlayerName>/',views.personal_result,name = 'result'),
 ]

@@ -104,12 +104,20 @@ def get_player_next_question(player):
     waiting_room = player.room
     return Quiz.objects.filter(id = waiting_room.quiz_type_id)[0].question_set.all()[player.current_question]
     
+def personal_result(request,RoomId,PlayerName):
+    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
+    context = {'player':player}
+    return render(request,'Game/result_player.html',context)
+
 def start_quiz(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
     question_set = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]
     player = Player.objects.get(player_name=PlayerName,room=waiting_room)
+    if player.current_question >= len(question_set):
+        return redirect(reverse('Game:result',args = [RoomId,PlayerName]))
     question = get_player_next_question(player)
     for pointer in range(len(question_set)):
         if question == question_set[pointer]:
