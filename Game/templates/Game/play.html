@@ -54,11 +54,11 @@
                 <div class="card">
                         <div class="card-header">Quiz: {{ quiz.quizz_name }} {{dict_question.index}}/{{number}}</div>
                     <div class="card-body">
-                        <form action="{% url "Game:submit_answer" %}" method="post">
+                        <form action="{% url "Game:submit_answer" %}" method="post" name = "answer">
                             {% csrf_token %}
                             <label class="col-md-12"><h6> {{dict_question.question.question_text}}</h6></label>
                             {% for choice in choices %}
-                                <label class="col-md-11"><input type="radio" class="form-check-input" id="radio2" name="radio_answer" value="{{current_player.id}}$${{choice.id}}$${{room.room_id}}" required>{{choice}}</p></label>
+                                <label class="col-md-11"><input type="radio" class="form-check-input" id="radio{{forloop.counter0}}" name="radio_answer" value="{{current_player.id}}$${{choice.id}}$${{room.room_id}}" required>{{choice}}</p></label>
                             {% endfor %}
                             <div class="row justify-content-center">
                             <div class="col-md-0">
@@ -106,8 +106,23 @@
 
 
 
-
-
+<script>
+window.setTimeout(function () {
+    //check all radio
+    var radios = document.getElementsByTagName('input');
+    var no_checked = true;
+    for (var i = 0; i < radios.length; i++) {
+    if (radios[i].type === 'radio' && radios[i].checked) {
+        no_checked = false;
+        }
+    }
+    if(no_checked){
+        document.getElementById('radio0').checked = true;
+        document.getElementById('radio0').value = "{{current_player.id}}$$LATE$${{room.room_id}}";
+    }
+    document.answer.submit();
+}, {{room.time}} * 1000);
+ </script>
 
 </body>
 </html>

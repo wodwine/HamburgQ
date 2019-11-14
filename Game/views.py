@@ -94,8 +94,11 @@ def submit_answer(request):
         return redirect(reverse('Game:start_quiz'))
     answer = request.POST["radio_answer"]
     answer = answer.split("$$")
-    player = Player.objects.filter(id = answer[0])[0]
-    if Choice.objects.filter(id = answer[1])[0].answer == 'True':
+    player = Player.objects.get(id = answer[0])
+    if answer[1] == "LATE":
+        player.progress()
+        return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
+    elif Choice.objects.get(id = answer[1]).answer == 'True':
         player.add_score()
     player.progress()
     return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
