@@ -34,8 +34,24 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'bZXtMreLAIGC0Y5cD6MGGuzB'
 LOGIN_REDIRECT_URL = '/login/host'
 
-# Application definition
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
+
+# Application definition
 INSTALLED_APPS = [
     'Game.apps.GameConfig',
     'django.contrib.admin',
