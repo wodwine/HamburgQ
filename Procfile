@@ -1,1 +1,1 @@
-web: gunicorn HamburgQ.wsgi
+web: gunicorn HamburgQ.wsgi --log-file -
