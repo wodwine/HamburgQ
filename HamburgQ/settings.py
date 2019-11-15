@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'HamburgQ.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DATABASE_ENGINE'),
+        'ENGINE': config('DATABASE_ENGINE',default="django.db.backends.sqlite3"),
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
