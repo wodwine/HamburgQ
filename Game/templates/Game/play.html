@@ -105,24 +105,12 @@
 
 
 
-
+{% load static %}
 <script>
-window.setTimeout(function () {
-    //check all radio
-    var radios = document.getElementsByTagName('input');
-    var no_checked = true;
-    for (var i = 0; i < radios.length; i++) {
-    if (radios[i].type === 'radio' && radios[i].checked) {
-        no_checked = false;
-        }
-    }
-    if(no_checked){
-        document.getElementById('radio0').checked = true;
-        document.getElementById('radio0').value = "{{current_player.id}}$$LATE$${{room.room_id}}";
-    }
-    document.answer.submit();
-}, {{room.time}} * 1000);
- </script>
-
+var roomTime = {{ room.time }};
+var currentPlayerId = {{current_player.id}};
+var roomId = {{room.room_id}};
+</script>
+<script src="{% static 'Game/js/quiz.js' %}"></script>
 </body>
 </html>
