@@ -28,29 +28,12 @@ SECRET_KEY = config("SECRET_KEY",default = 'sefwejgmerijgmerohkb')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool,default = False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast = list, default=["*"])# default = [".herokuapp.com"])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast = list, default=["*"])
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'bZXtMreLAIGC0Y5cD6MGGuzB'
 LOGIN_REDIRECT_URL = '/login/host'
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
 
 # Application definition
 INSTALLED_APPS = [
@@ -98,22 +81,13 @@ WSGI_APPLICATION = 'HamburgQ.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if DEBUG==False:
-    DATABASES = {
-        'default' : dj_database_url.config(conn_max_age=600, ssl_require=True)
-        # 'default': {
-        #     'ENGINE': config('DATABASE_ENGINE',default="django.db.backends.sqlite3"),
-        #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': config('DATABASE_ENGINE',default="django.db.backends.sqlite3"),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        # 'default' : dj_database_url.config(conn_max_age=600, ssl_require=True)
-        'default': {
-            'ENGINE': config('DATABASE_ENGINE',default="django.db.backends.sqlite3"),
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+}
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
@@ -157,4 +131,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
