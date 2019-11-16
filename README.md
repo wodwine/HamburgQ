@@ -5,6 +5,7 @@
 - Iteration plan - [Iteration plan](https://docs.google.com/document/d/133HPHjWUwl43IdhKVEMPJiHcuoHuUlzp2-9CJC1oEoE/edit)
 - Task Board - [Trello](https://trello.com/b/OzYse9c9/hamburgq)  
 - Github - [Github](https://github.com/kidstylex/HamburgQ)
+- Mockup Papers - [Mockup Papers](https://docs.google.com/presentation/d/1iLrLxaDiU9liUZJI3gHnZ0y2dnxpwuQllvGP1yIU29o/edit#slide=id.p)
 
 
 ## Team Members
