@@ -6,7 +6,7 @@ from random import randint
 from django.urls import reverse
 from django.views import generic
 import sqlite3
-
+from django.utils import timezone
 
 def get_random_id():
     new_name = ""
@@ -110,11 +110,28 @@ def get_player_next_question(player):
 def personal_result(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
-    context = {'player':player}
+    if not waiting_room.time_over():
+        return redirect(reverse('Game:all_result' ,args=[RoomId,PlayerName] )) 
+    context = {'player':player,'room':waiting_room}
     return render(request,'Game/result_player.html',context)
+
+def all_result(request,RoomId,PlayerName):
+    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    if waiting_room.time_over():
+        return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
+    player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
+    context = {'player':player,'room':waiting_room}
+    return render(request,'Game/result_all.html',context)
+
+def prepare_quiz(room):
+    room.reset_create()
+    room.started = True
+    room.save()
 
 def start_quiz(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    if not waiting_room.started:
+        prepare_quiz(waiting_room)
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
     question_set = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]

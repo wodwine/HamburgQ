@@ -20,5 +20,6 @@ urlpatterns = [
     path('WRguest/<int:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
     path('play/<int:RoomId>/<str:PlayerName>/',views.start_quiz, name = "start_quiz"),
     path('score/',views.submit_answer,name = "submit_answer"),
-    path('result/<int:RoomId>/<str:PlayerName>/',views.personal_result,name = 'result'),
+    path('wait_result/<int:RoomId>/<str:PlayerName>/',views.personal_result,name = 'result'),
+    path('result/<int:RoomId>/<str:PlayerName>/',views.all_result,name = 'all_result'),
 ]
