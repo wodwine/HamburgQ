@@ -7,6 +7,8 @@
 - Github - [Github](https://github.com/kidstylex/HamburgQ)
 - Mockup Papers - [Mockup Papers](https://docs.google.com/presentation/d/1iLrLxaDiU9liUZJI3gHnZ0y2dnxpwuQllvGP1yIU29o/edit#slide=id.p)
 - Project Proposal - [Project Proposal](https://docs.google.com/document/d/1UD7B5s0sYkI1M6M1O-IvHSsvIg23JR0TkrShE1AXIk0/edit#heading=h.vkq3s4w01uy9)
+- Code Review Script - [Code Review Script
+](https://docs.google.com/document/d/1zPGRHCFPNvA5OCWQc-J3Q4h8VnlXVnxrC8IPeDdF7vw/edit?usp=sharing)
 
 ## Team Members
 
