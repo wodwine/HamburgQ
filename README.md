@@ -4,7 +4,7 @@
 
 - Iteration plan - [Iteration plan](https://docs.google.com/document/d/133HPHjWUwl43IdhKVEMPJiHcuoHuUlzp2-9CJC1oEoE/edit)
 - Our Task Board - [Trello](https://trello.com/b/OzYse9c9/hamburgq)  
-- Our Github - [Github issues](https://github.com/kidstylex/HamburgQ)
+- Our Github - [Github](https://github.com/kidstylex/HamburgQ)
 
 
 ## Team Members
