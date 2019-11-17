@@ -110,14 +110,14 @@ def get_player_next_question(player):
 def personal_result(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
-    if not waiting_room.time_over():
+    if waiting_room.time_over():
         return redirect(reverse('Game:all_result' ,args=[RoomId,PlayerName] )) 
     context = {'player':player,'room':waiting_room}
     return render(request,'Game/result_player.html',context)
 
 def all_result(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-    if waiting_room.time_over():
+    if not waiting_room.time_over():
         return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
     context = {'player':player,'room':waiting_room}

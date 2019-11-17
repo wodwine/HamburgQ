@@ -43,8 +43,8 @@ class WaitingRoom(models.Model):
     def time_over(self):
         # datetime.timedelta will always display negative time with -days
         if (timezone.now() - self.get_time_over()).days <= -1:
-            return True
-        return False
+            return False
+        return True
     
     def reset_create(self):
         self.created = timezone.now()
