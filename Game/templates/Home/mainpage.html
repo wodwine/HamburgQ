@@ -31,8 +31,8 @@
       {% else %}
         <div class="intro-lead-in">Welcome To HamBurgQ!</div>
       {% endif %}
-        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-        <a class="btn btn-custom btn-xl text-uppercase js-scroll-trigger" href="http://127.0.0.1:8000/login/" >Let's play
+        <div class="intro-heading text-uppercase">Add something</div>
+        <a class="btn btn-custom btn-xl text-uppercase js-scroll-trigger" href="{% url 'Game:login' %}" >Let's play
         </a>
         
       </div>
@@ -44,9 +44,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">How to play <img src="{% static 'Home/img/logo.png'%}" width="28" height="28"> </h2>
+          <h2 class="section-heading text-uppercase">How to play </h2>
+          {% comment %} <img src="{% static 'Home/img/logo.png'%}" width="28" height="28"> </h2> {% endcomment %}
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          <img class="fit" src="{% static 'Home/img/test.png'%}">
+          {% comment %} <img class="fit" src="{% static 'Home/img/test.png'%}"> {% endcomment %}
         </div>
       </div>
     </div>
