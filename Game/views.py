@@ -112,7 +112,8 @@ def personal_result(request,RoomId,PlayerName):
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
     if waiting_room.time_over():
         return redirect(reverse('Game:all_result' ,args=[RoomId,PlayerName] )) 
-    context = {'player':player,'room':waiting_room}
+    time_over = waiting_room.get_time_over() - timezone.now()
+    context = {'player':player,'room':waiting_room,'time':time_over.total_seconds()+1}
     return render(request,'Game/result_player.html',context)
 
 def all_result(request,RoomId,PlayerName):

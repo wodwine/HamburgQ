@@ -80,7 +80,11 @@
         </div>
     </div>
     </div>
-
+<script>
+window.setTimeout(function () {
+    window.location.href  = "{% url 'Game:all_result' room.room_id user.username %}"
+}, {{time}} * 1000);
+</script>
 </main>
 </body>
 </html>
