@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
+
+{% block home %}
+<a class="navbar-brand js-scroll-trigger" href="{% url 'Game:home' %}">HamBurgQ</a>
+{% endblock %}
+
+{% block howtoplay %}
+  <a class="nav-link js-scroll-trigger" href="{% url 'Game:home' %}#howtoplay">How to play</a>
+{% endblock %}
+
+{% block contact %}
+  <a class="nav-link js-scroll-trigger" href="{% url 'Game:home' %}#contact">Contact</a>
+{% endblock %}
+
 {% block method_content %}
 
 <!DOCTYPE html>

@@ -25,12 +25,6 @@ def admin(request):
 def home(request):
     return render(request,'Home/mainpage.html')
 
-def how_to_play(request):
-    return render(request,'Home/htp.html')
-
-def contact_us(request):
-    return render(request,'Home/contact.html')
-
 def login(request):
     return render(request,'Login/login.html')
 
