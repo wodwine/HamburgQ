@@ -49,12 +49,12 @@
         <hr class="my-5">
         <h3>Room : {{ room.room_id }}</h3>
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            {% comment %} <div class="col-md-6">
                 <div class="card">
                         <div class="card-header">For Hamburger</div>
                     <div class="card-body">
                         <form action="" method="">
-                            <div class="col-md-6 offset-md-8">
+                            <div class="col-md-6 offset-md-10">
                                     <a href="{% url 'Game:home' %}" class="btn btn-secondary">
                                         Back
                                     </a>
@@ -62,8 +62,8 @@
                     </div>
                     </form>
                 </div>
-            </div>
-            <div class="col-md-6">
+            </div> {% endcomment %}
+            <div class="col-md-3">
                 <div class="card">
                         <div class="card-header">Player info</div>
                     <div class="card-body">
@@ -72,6 +72,11 @@
                                     <h6>Player: {{player.player_name.title }}</h6>
                                     <h6>Score: {{player.score }}</h6>
                                     {{room.created}}
+                            </div>
+                            <div class="col-md-6 offset-md-8">
+                                    <a href="{% url 'Game:home' %}" class="btn btn-secondary">
+                                        Back
+                                    </a>
                             </div>
                     </div>
                     </form>
