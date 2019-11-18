@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY",default = 'sefwejgmerijgmerohkb')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", cast=bool)
+DEBUG = config("DEBUG", cast=bool,default = False)
 
-ALLOWED_HOSTS = config('ALLOW_HOST',default="*")
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast = list, default=["*"])
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.apps.googleusercontent.com'
@@ -35,7 +34,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'bZXtMreLAIGC0Y5cD6MGGuzB'
 LOGIN_REDIRECT_URL = '/login/host'
 
 # Application definition
-
 INSTALLED_APPS = [
     'Game.apps.GameConfig',
     'django.contrib.admin',
@@ -81,9 +79,10 @@ WSGI_APPLICATION = 'HamburgQ.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': config('DATABASE_ENGINE'),
+        'ENGINE': config('DATABASE_ENGINE',default="django.db.backends.sqlite3"),
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
