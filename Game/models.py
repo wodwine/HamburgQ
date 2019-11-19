@@ -20,7 +20,7 @@ class Question(models.Model):
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    answer = models.CharField(max_length=5,default="False")
+    answer = models.BooleanField(default=False)
 
     def __str__(self):
         return self.choice_text
@@ -55,12 +55,19 @@ class Player(models.Model):
     room = models.ForeignKey(WaitingRoom, on_delete=models.CASCADE,null = True)
     score = models.IntegerField(default=0)
     current_question = models.IntegerField(default=0)
+    streak = models.IntegerField(default=0)
     
     def __str__(self):
         return self.player_name
 
+    def reset_score(self):
+        self.score = 0
+        self.save()
+
     def progress(self):
         self.current_question += 1
+        if self.score > self.streak:
+            self.streak = self.score
         self.save()
 
     def add_score(self):

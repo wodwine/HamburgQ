@@ -95,12 +95,20 @@ def submit_answer(request):
     answer = request.POST["radio_answer"]
     answer = answer.split("$$")
     player = Player.objects.get(id = answer[0])
+    print(Choice.objects.get(id = answer[1]).answer )
+    print(f'is true {(Choice.objects.get(id = answer[1]).answer == "True")}')
     if answer[1] == "LATE":
+        player.reset_score()
         player.progress()
         return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
-    elif Choice.objects.get(id = answer[1]).answer == 'True':
+    elif Choice.objects.get(id = answer[1]).answer == True:
+        print(Choice.objects.get(id = answer[1]).answer )
         player.add_score()
-    player.progress()
+        player.progress()
+    elif Choice.objects.get(id = answer[1]).answer == False:
+        print(Choice.objects.get(id = answer[1]).answer )
+        player.reset_score()
+        player.progress()
     return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
 
 def get_player_next_question(player):
