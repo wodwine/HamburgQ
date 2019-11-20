@@ -38,8 +38,14 @@
     <main class="login-form" style="margin:30px;">
     
         <div class="container">
-          <center><h3 class="section-heading text-uppercase">Login</h3></center>
-          </br><center><h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3></center>
+
+         {% if user.is_authenticated %}
+            <center><h3 class="section-heading text-uppercase">Let's Start!</h3></center>
+            </br><center><h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3></center>
+          {% else %}
+            <center><h3 class="section-heading text-uppercase">Login</h3></center>
+            </br><center><h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3></center>
+          {% endif %}
 
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -49,7 +55,7 @@
                                 <div class="form-group row">
                                   <div class="col-md-12 text-center">
                                     {% if user.is_authenticated %}
-                                      <a href="{% url 'Game:login_host' %}" target="_self" class="btn btn-danger btn-md">Login</a>
+                                      <a href="{% url 'Game:login_host' %}" target="_self" class="btn btn-danger btn-md">create room</a>
                                     {% else %}
                                       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger">Host
                                       </a>
@@ -67,7 +73,11 @@
                             <form action="" method="">
                                 <div class="form-group row">
                                   <div class="col-md-12 text-center">
+                                  {% if user.is_authenticated %}
+                                    <a href="{% url 'Game:login_guest' %}" target="_self" class="btn btn-info btn-md">Swich to guest</a>
+                                  {% else %}
                                     <a href="{% url 'Game:login_guest' %}" target="_self" class="btn btn-info btn-md">Guest</a>
+                                  {% endif %}
                                   </div>
                                 </div>
                             </form>
