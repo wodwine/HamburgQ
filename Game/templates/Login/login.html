@@ -48,6 +48,26 @@
         <hr class="my-5">
 
         <div class="row justify-content-center">
+        {% if user.is_authenticated %}
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">Personal Information</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                    <div class="col-md-10 offset-md-4">
+                                        <h>{{user.username.title}}</h>
+                                    </div>
+                            </div>
+                            <div class="col-md-6 offset-md-9"><a href="{% url 'Game:home' %}" class="btn btn-secondary">
+                                Back
+                            </a>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">Login</div>

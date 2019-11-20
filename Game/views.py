@@ -8,6 +8,7 @@ from django.views import generic
 import sqlite3
 from django.utils import timezone
 
+
 def get_random_id():
     new_name = ""
     for times in range(6):
