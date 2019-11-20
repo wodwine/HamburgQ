@@ -51,6 +51,7 @@ class WaitingRoom(models.Model):
         self.save()
 
 class Player(models.Model):
+    status = models.CharField(max_length = 20,default="Player")
     player_name = models.CharField(max_length = 20)
     room = models.ForeignKey(WaitingRoom, on_delete=models.CASCADE,null = True)
     score = models.IntegerField(default=0)

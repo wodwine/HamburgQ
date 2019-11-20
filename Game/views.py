@@ -51,7 +51,7 @@ def create_room(request):
         room_unique_id = get_random_id()
         waiting_room = WaitingRoom(room_name = get_name,room_id = room_unique_id,quiz_type = get_type,time = get_time)
         waiting_room.save()
-        host = Player(player_name=str(request.user.username),room = waiting_room)
+        host = Player(player_name=str(request.user.username),room = waiting_room,status="Host")
         host.save() 
 
     except:
