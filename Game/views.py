@@ -79,12 +79,14 @@ def waiting_room_guest(request,RoomId):
         get_name = request.POST['player_name']
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
         player_list = waiting_room.player_set.all()
-        if get_name not in player_list:
+        list_player_name=[]
+        for name in player_list:
+            list_player_name.append(name.player_name)
+        if get_name not in list_player_name:
             player = Player(player_name=str(get_name),room = waiting_room)
             player.save()
-        else:
-            return redirect(reverse("Game:login_guest"))
         all_player = waiting_room.player_set.all()
+        player = Player.objects.get(player_name=get_name,room_id=waiting_room)
         context = {'room' : waiting_room,'all_player' : all_player,'current_player':player}
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
@@ -96,18 +98,14 @@ def submit_answer(request):
     answer = request.POST["radio_answer"]
     answer = answer.split("$$")
     player = Player.objects.get(id = answer[0])
-    print(Choice.objects.get(id = answer[1]).answer )
-    print(f'is true {(Choice.objects.get(id = answer[1]).answer == "True")}')
     if answer[1] == "LATE":
         player.reset_score()
         player.progress()
         return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
     elif Choice.objects.get(id = answer[1]).answer == True:
-        print(Choice.objects.get(id = answer[1]).answer )
         player.add_score()
         player.progress()
     elif Choice.objects.get(id = answer[1]).answer == False:
-        print(Choice.objects.get(id = answer[1]).answer )
         player.reset_score()
         player.progress()
     return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
