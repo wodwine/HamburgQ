@@ -37,7 +37,7 @@
             {% block howtoplay %}<a class="nav-link js-scroll-trigger" href="#howtoplay">How to play</a>{% endblock %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'Game:login' %}">play!</a>
+              {% block play %}<a class="nav-link js-scroll-trigger" href="{% url 'Game:login' %}">play!</a>{% endblock %}
           </li>
           <li class="nav-item">
             {% if user.is_authenticated %}

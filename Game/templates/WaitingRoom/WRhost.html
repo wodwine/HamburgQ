@@ -1,47 +1,30 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+{% extends 'base.html' %}
+
+{% block home %}
+    <a class="navbar-brand js-scroll-trigger" href="{% url 'Game:home' %}">HamBurgQ</a>
+{% endblock %}
+
+{% block howtoplay %}
+{% endblock %}
+
+{% block play %}
+{% endblock %}
+
+{% block contact %}
+{% endblock %}
+
+{% block method_content %}
 
 <!doctype html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <title>Play Room</title>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Waiting/css/style.css' %}">
 
-                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
-                    <strong>HamBurgQ</strong>
-                </a>
-                {% if user.is_authenticated %}
-                <h>{{user.username.title}}</h>
-                <a href="{% url 'Game:log_out' %}">Logout</a>
-                {% else %}
-                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
-                    admin
-                </a>
-                {% endif %}
-
-                </div>
-
-            </div>
-        </nav>
 </head>
 <body>
 
@@ -70,10 +53,10 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <a class="btn btn-success" style="color:white" href="{% url 'Game:start_quiz' room.room_id user.username %}">
+                                <a class="btn btn-start" href="{% url 'Game:start_quiz' room.room_id user.username %}">
                                     Start
                                 </a>
-                                <a href="{% url 'Game:log_out_host' room.room_id %}" class="btn btn-secondary">
+                                <a href="{% url 'Game:log_out_host' room.room_id %}" class="btn btn-cc">
                                     Cancel
                                 </a>
                             </div>
@@ -103,11 +86,8 @@
 
 </main>
 
-
-
-
-
-
-
 </body>
+
 </html>
+
+{% endblock %}
