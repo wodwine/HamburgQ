@@ -1,3 +1,7 @@
+<!-- Logo artwork -->
+<!-- https://icons8.com -->
+
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +36,17 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            {% block user %}<a class="nav-user">
+              {% if user.is_authenticated %}
+                  <h>{{user.username.title}}</h>
+              {% endif %}
+            </a>{% endblock %}
+            </li>
+          </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
             {% block howtoplay %}<a class="nav-link js-scroll-trigger" href="#howtoplay">How to play</a>{% endblock %}
@@ -50,6 +65,7 @@
             {% block contact %}<a class="nav-link js-scroll-trigger"href="#contact">Contact</a>{% endblock %}
           </li>
         </ul>
+
       </div>
     </div>
   </nav>
