@@ -113,11 +113,16 @@ h6 {
   font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+#mainNav .nav-user {
+  color:#896d9e;
+  font-family: 'Montserrat';
+}
+
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
   color: #fec503;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link {
+#mainNav .navbar-nav .nav-item .nav-link{
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
@@ -143,6 +148,7 @@ h6 {
   #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
   }
+
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
@@ -152,8 +158,9 @@ h6 {
     font-size: 1.25em;
     padding: 12px 0;
   }
+   
 }
-
+ 
 .card-header {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
