@@ -20,7 +20,7 @@ class Question(models.Model):
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    answer = models.BooleanField(default=False     )
+    answer = models.BooleanField(default=0)
 
     def __str__(self):
         return self.choice_text
@@ -32,7 +32,7 @@ class WaitingRoom(models.Model):
     quiz_type = models.ForeignKey(Quiz,on_delete= models.CASCADE,null = True)
     time = models.IntegerField(null=True)
     created = models.DateTimeField(auto_now_add=True)
-    started = models.BooleanField(default=False)
+    started = models.BooleanField(default=0)
 
     def __str__(self):
         return self.room_name
@@ -51,6 +51,7 @@ class WaitingRoom(models.Model):
         self.save()
 
 class Player(models.Model):
+    status = models.CharField(max_length = 20,default="Player")
     player_name = models.CharField(max_length = 20)
     room = models.ForeignKey(WaitingRoom, on_delete=models.CASCADE,null = True)
     score = models.IntegerField(default=0)

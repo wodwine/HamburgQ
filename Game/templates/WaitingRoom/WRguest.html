@@ -6,7 +6,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="1" >
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +39,7 @@
             </div>
         </nav>
 </head>
-<body onload = "checkStart()">
+<body>
 
 <main class="login-form">
     <div class="container">
@@ -101,10 +100,19 @@
 
 
 <script>
-function checkStart{
-    if({{}})
+function timedRefresh(timeoutPeriod) {
+    console.log('wrgrgwg')
+    if({{start}}){
+        window.location = "{% url 'Game:start_quiz' room.room_id current_player.player_name %}";
+    }else{
+	setTimeout("location.reload(true);",timeoutPeriod);
+    }
 }
+window.onload = timedRefresh(3000);
 </script>
+
+
+
 
 </body>
 </html>
