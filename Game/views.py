@@ -132,7 +132,8 @@ def all_result(request,RoomId,PlayerName):
     if not waiting_room.time_over():
         return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
-    context = {'player':player,'room':waiting_room}
+    all_player = waiting_room.player_set.all()
+    context = {'player':player,'room':waiting_room,'all_player':all_player}
     return render(request,'Game/result_all.html',context)
 
 def prepare_quiz(room):
