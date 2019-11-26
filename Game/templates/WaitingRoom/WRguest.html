@@ -96,12 +96,15 @@
     </div>
 
 </main>
-
-
-
-
-
-
-
+<script>
+function timedRefresh(timeoutPeriod) {
+    if({{start}}){
+        window.location = "{% url 'Game:start_quiz' room.room_id current_player.player_name %}";
+    }else{
+	setTimeout("location.reload(true);",timeoutPeriod);
+    }
+}
+window.onload = timedRefresh(1000);
+</script>
 </body>
 </html>

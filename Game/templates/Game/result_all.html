@@ -49,35 +49,27 @@
         <hr class="my-5">
         <h3>Room : {{ room.room_id }}</h3>
         <div class="row justify-content-center">
-            {% comment %} <div class="col-md-6">
-                <div class="card">
-                        <div class="card-header">For Hamburger</div>
-                    <div class="card-body">
-                        <form action="" method="">
-                            <div class="col-md-6 offset-md-10">
-                                    <a href="{% url 'Game:home' %}" class="btn btn-secondary">
-                                        Back
-                                    </a>
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div> {% endcomment %}
             <div class="col-md-3">
                 <div class="card">
                         <div class="card-header">Player info</div>
                     <div class="card-body">
-                        <form action="" method="">
+                            {% for each_player in all_player %}
+                            {{forloop.counter}}
+                            <hr>
                             <div class="col-md-12">
-                                    <h6>Player: {{player.player_name.title }}</h6>
-                                    <h6>Score: {{player.score }}</h6>
+                                    <h6>Player: {{each_player.player_name.title }}</h6>
+                                    <h6>Score: {{each_player.score }}</h6>
+                                    <h6>Streak: {{each_player.streak }}</h6>
                                     {{room.created}}
                             </div>
+                            <hr>
+                            {% endfor %}
                             <div class="col-md-6 offset-md-8">
                                     <a href="{% url 'Game:home' %}" class="btn btn-secondary">
                                         Back
                                     </a>
                             </div>
+                            
                     </div>
                     </form>
                 </div>
