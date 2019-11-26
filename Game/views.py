@@ -6,6 +6,7 @@ from random import randint
 from django.urls import reverse
 from django.views import generic
 import sqlite3
+from django.utils import timezone
 
 
 def get_random_id():
@@ -44,9 +45,10 @@ def create_room(request):
     try:
         room_unique_id = get_random_id()
         waiting_room = WaitingRoom(room_name = get_name,room_id = room_unique_id,quiz_type = get_type,time = get_time)
-        host = Player(player_name=str(request.user.username),room_id_player = room_unique_id)
-        host.save()
         waiting_room.save()
+        host = Player(player_name=str(request.user.username),room = waiting_room,status="Host")
+        host.save() 
+
     except:
         return redirect(reverse("Game:login_host"))
     else:
@@ -62,7 +64,7 @@ def redirdirect_guest(request):
 
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-    all_player = Player.objects.filter(room_id_player = RoomId)
+    all_player = waiting_room.player_set.all()
     context = {'room' : waiting_room,'all_player':all_player}
     return render(request,'WaitingRoom/WRhost.html',context)
 
@@ -70,29 +72,87 @@ def waiting_room_guest(request,RoomId):
     if request.method == "POST":
         get_name = request.POST['player_name']
         waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
-        player_list = []
-        for i in Player.objects.filter(room_id_player = RoomId):
-            player_list.append(i.player_name)
-        if get_name not in player_list:
-            player = Player(player_name=str(get_name),room_id_player = RoomId)
+        player_list = waiting_room.player_set.all()
+        list_player_name=[]
+        for name in player_list:
+            list_player_name.append(name.player_name)
+        if get_name not in list_player_name:
+            player = Player(player_name=str(get_name),room = waiting_room)
             player.save()
-        else:
-            return redirect(reverse("Game:login_guest"))
-        all_player = Player.objects.filter(room_id_player = RoomId) 
-        context = {'room' : waiting_room,'all_player' : all_player,'current_player':player}
+        all_player = waiting_room.player_set.all()
+        player = Player.objects.get(player_name=get_name,room_id=waiting_room)
+        # javascript boolean use lower case
+        start = 'false'
+        if waiting_room.started:
+            start = 'true'
+        context = {'room' : waiting_room,'all_player' : all_player,'current_player':player,'start':start}
         return render(request,'WaitingRoom/WRguest.html',context)
     else:
         return redirect(reverse('Game:login_guest'))
 
+def submit_answer(request):
+    if request.method != "POST":
+        return redirect(reverse('Game:start_quiz'))
+    answer = request.POST["radio_answer"]
+    answer = answer.split("$$")
+    player = Player.objects.get(id = answer[0])
+    if answer[1] == "LATE":
+        player.reset_score()
+        player.progress()
+        return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
+    elif Choice.objects.get(id = answer[1]).answer == True:
+        player.add_score()
+        player.progress()
+    elif Choice.objects.get(id = answer[1]).answer == False:
+        player.reset_score()
+        player.progress()
+    return redirect(reverse('Game:start_quiz' ,args=[answer[2],player.player_name] ))
+
+def get_player_next_question(player):
+    waiting_room = player.room
+    return Quiz.objects.filter(id = waiting_room.quiz_type_id)[0].question_set.all()[player.current_question]
+    
+def personal_result(request,RoomId,PlayerName):
+    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
+    if waiting_room.time_over():
+        return redirect(reverse('Game:all_result' ,args=[RoomId,PlayerName] )) 
+    time_over = waiting_room.get_time_over() - timezone.now()
+    context = {'player':player,'room':waiting_room,'time':time_over.total_seconds()+1}
+    return render(request,'Game/result_player.html',context)
+
+def all_result(request,RoomId,PlayerName):
+    waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    if not waiting_room.time_over():
+        return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
+    player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
+    all_player = waiting_room.player_set.all()
+    context = {'player':player,'room':waiting_room,'all_player':all_player}
+    return render(request,'Game/result_all.html',context)
+
+def prepare_quiz(room):
+    room.reset_create()
+    room.started = True
+    room.save()
+
 def start_quiz(request,RoomId,PlayerName):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
+    if not waiting_room.started:
+        prepare_quiz(waiting_room)
     quiz = get_object_or_404(Quiz, id=waiting_room.quiz_type_id)
-    questions = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
+    question_set = Question.objects.filter(quizz_id_id=waiting_room.quiz_type_id)
     choices_list=[]
-    player = Player.objects.get(player_name=PlayerName,room_id_player=RoomId)
-    for q in questions:
-        choices_list.append(Choice.objects.filter(question_id=q.id))
-    context = {'room' : waiting_room , 'quiz':quiz ,'questions':questions ,'choices':choices_list,'current_player':player,'number':len(questions)}
+    player = Player.objects.get(player_name=PlayerName,room=waiting_room)
+    if player.current_question >= len(question_set):
+        return redirect(reverse('Game:result',args = [RoomId,PlayerName]))
+    question = get_player_next_question(player)
+    for pointer in range(len(question_set)):
+        if question == question_set[pointer]:
+            index = pointer
+    dict_question = {'question': question,
+                    'index':index+1}
+    choices_list = question.choice_set.all()
+    context = {'room' : waiting_room , 'quiz':quiz ,'dict_question':dict_question ,'choices':choices_list,'current_player':player,'number':len(question_set)}
     return render(request, 'Game/play.html', context)
 
 def log_out(request):
@@ -102,8 +162,6 @@ def log_out(request):
 def log_out_host(request,roomid):
     instance_room = WaitingRoom.objects.get(room_id=roomid)
     instance_room.delete()
-    instance_player = Player.objects.filter(room_id_player=roomid)
-    instance_player.delete()
     return redirect(reverse('Game:login_host'))
 
 def log_out_guest(request,player_id):
