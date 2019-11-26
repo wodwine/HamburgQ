@@ -1,62 +1,40 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+{% extends 'base.html' %}
+
+{% block home %}
+    <a class="navbar-brand js-scroll-trigger" href="{% url 'Game:home' %}">HamBurgQ</a>
+{% endblock %}
+
+{% block howtoplay %}
+{% endblock %}
+
+{% block play %}
+{% endblock %}
+
+{% block contact %}
+{% endblock %}
+
+{% block method_content %}
 
 <!doctype html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <title>Host</title>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Login/css/style_host_guest.css' %}">
 
-                <a class="navbar-brand waves-effect" href="{% url 'Game:home' %}" target="_self">
-                    <strong>HamBurgQ</strong>
-                </a>
-                {% if user.is_authenticated %}
-                <h>{{user.username.title}}</h>
-                <a href="{% url 'Game:log_out' %}">Logout</a>
-                {% else %}
-                <a class="navbar-brand waves-effect" href="{% url 'Game:admin' %}" target="_self">
-                    admin
-                </a>
-                {% endif %}
-
-                </div>
-
-            </div>
-        </nav>
 </head>
+
 <body>
 
-
-
-<main class="login-form">
+<main>
     <div class="container">
         <hr class="my-5">
 
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Create room</div>
                     <div class="card-body">
@@ -65,7 +43,7 @@
                             <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Room's name</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" name="roomName" required placeholder="Enter your name">
+                                        <input class="form-control" name="roomName" required placeholder="Enter room name">
                                     </div>
                                 </div>
                             <div class="form-group row">
@@ -79,7 +57,7 @@
                                                     {% endfor %}
                                                 </select>
                                                 {% else %}
-                                                    <h5>No polls are available.</h5>
+                                                    <h6>No polls are available.</h6>
                                                 {% endif %}
                                               </div>
                                     </div>  
@@ -89,7 +67,7 @@
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Time/Question</label>
                                     <div class="col-md-6">
                                             <div class="dropdown">
-                                                    <select class="btn btn-info dropdown-toggle" name = "time">
+                                                    <select class="btn btn-time dropdown-toggle" name = "time">
                                                         <option value="5">5</option>
                                                         <option value="10">10</option>
                                                         <option value="15">15</option>
@@ -97,9 +75,10 @@
                                                   </div>
                                         </div>
                             </div>
-                            <div class="col-md-6 offset-md-4">
-                                <input class="btn btn-success" type="submit" value="Create">
-                                <a href="{% url 'Game:login' %}" class="btn btn-secondary">
+                            <hr>
+                            <div class="col-md-5 offset-md-4">
+                                <input class="btn btn-create" type="submit" value="Create">
+                                <a href="{% url 'Game:login' %}" class="btn btn-back" >
                                     Back
                                 </a>
                             </div>
@@ -112,5 +91,8 @@
     </div>
 
 </main>
+
 </body>
+
 </html>
+{% endblock %}

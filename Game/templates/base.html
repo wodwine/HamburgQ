@@ -1,0 +1,85 @@
+<!-- Logo artwork -->
+<!-- https://icons8.com -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'Base/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'Base/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="{% static 'Base/img/logo.png' %}">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      {% block home %}<a class="navbar-brand js-scroll-trigger" href="#page-top">HamBurgQ</a>{% endblock %}
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            {% block user %}<a class="nav-user">
+              {% if user.is_authenticated %}
+                  <h>{{user.username.title}}</h>
+              {% endif %}
+            </a>{% endblock %}
+            </li>
+          </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            {% block howtoplay %}<a class="nav-link js-scroll-trigger" href="#howtoplay">How to play</a>{% endblock %}
+          </li>
+          <li class="nav-item">
+              {% block play %}<a class="nav-link js-scroll-trigger" href="{% url 'Game:login' %}">play!</a>{% endblock %}
+          </li>
+          <li class="nav-item">
+            {% if user.is_authenticated %}
+                <a class="nav-link js-scroll-trigger" href="{% url "Game:log_out"%}">Logout</a>
+            {% else %}
+            <a class="nav-link js-scroll-trigger" href="{% url 'Game:admin' %}">admin</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            {% block contact %}<a class="nav-link js-scroll-trigger"href="#contact">Contact</a>{% endblock %}
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'Base/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'Base/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'Base/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+  <script src="{% static 'Base/js/scripts.min.js'%}"></script>
+
+</body>
+
+</html>
+{% block method_content %}{% endblock method_content %}
