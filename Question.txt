@@ -1,0 +1,80 @@
+- Kasetsart
+1. What is the Kasetsart university symbol?
+    1. Phra Phrom
+    2. Phra Vishnu
+    3. Phra Phirun
+    4. Phra In
+2. What is the Kasetsart university tree?
+    1. Samanea saman 
+    2. Nontri
+    3. Golden Shower Tree
+    4. Sunflower
+3. The king and queen planted nine nontri trees
+    1. Samanea saman 
+    2. Nontri
+    3. Golden Shower Tree
+    4. Sunflower
+4. What's happened when we see a white squirel?
+    1. Bad luck 
+    2. Get an F
+    3. Get an A
+    4. Get money
+5. What's happened when we see a turtle?
+    1. Bad luck 
+    2. Get an F
+    3. Get an A
+    4. Get money
+
+-Mathematics
+1. sin 2A = ???
+    1. sinAcosA
+    2. cosA/2sinA/2
+    3. 2sinAcosA
+    4. 2cosA/2sinA/2
+2. What is the fundamental theorem of calculus ?
+    1. Differentiate
+    2. Integration
+    3. Pythagoras
+    4. Terminology
+3. 55%7+(4/5*15+2) = ???
+    1. 20
+    2. 19.6
+    3. 8.05
+    4. 13
+4. Which one of the following is not a parallelogram ?
+    1. Rectangle
+    2. Circle
+    3. Rhombus
+    4. Rhomboid
+5. Which one is empty set ?
+    1. {x|x is a people with 180 cm hight in the world}
+    2. {x|if x != 100, then x>100}
+    3. {x|20<x<25 and x % 9 ==0}
+    4. {x|20<x<25 or x % 9 ==0}
+
+-Harry Potter
+1. What is the guardian animal of Harry Potter ?
+    1. Deer
+    2. Rat
+    3. Otter
+    4. Bird
+2. Who is the girl crying in the bathroom ?
+    1. Moaning myrtle
+    2. Hermione Granger
+    3. Sho Shang
+    4. Luna Lovegood
+3. What is the spell that can delete the memories of people ?
+    1. Expelliarmus
+    2. Avada kedavra
+    3. Obliviate
+    4. Expecto patronum
+4. Which one is the boggart that show Harry's scariest ?
+    1. Dementor
+    2. Snake
+    3. Severus Snape
+    4. Clowns
+5. What is the name of Albus Dumbledore's wand ?
+    1. Bomblaster wand 
+    2. Phoenix wand
+    3. Elder wand
+    4. Older wand
