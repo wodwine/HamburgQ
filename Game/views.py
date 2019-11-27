@@ -24,7 +24,12 @@ def admin(request):
     return HttpResponse('admin')
 
 def home(request):
-    return render(request,'Home/mainpage.html')
+    player_temp=Player.objects.order_by('-streak')
+    player=[]
+    for i in range(5):
+        player.append(player_temp[i])
+    context={"player":player}
+    return render(request,'Home/mainpage.html',context)
 
 def login(request):
     return render(request,'Login/login.html')
