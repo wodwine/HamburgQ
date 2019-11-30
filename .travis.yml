@@ -1,9 +1,11 @@
 language: python
-    python:
-      - "3.6"
-    git:
-      depth: 1
-    install:
-      - pip install -r requirements.txt
-    script:
-      - python manage.py test
+python:
+  - "3.6"
+git:
+  depth: 1
+env:
+  -DJANGO=1.8 DB=mysql
+install:
+  - pip install -r requirements.txt
+script: # => 7
+  - python manage.py test
