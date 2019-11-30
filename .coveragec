@@ -5,6 +5,8 @@ omit =
         *__init__*
         *manage.py*
         *Game/views.py*
+        *Game/migrations*
+        *Game/templates*
 
 [report]
 # Regexes for lines to exclude from consideration
