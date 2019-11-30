@@ -4,9 +4,7 @@ branch = True
 omit = 
         *__init__*
         *manage.py*
-        *Game/views.py*
-        *Game/migrations*
-        *Game/templates*
+        *views.py*
 
 [report]
 # Regexes for lines to exclude from consideration
