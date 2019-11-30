@@ -11,6 +11,6 @@ install:
 
 env:
     - TRAVIS_SECURE_ENV_VARS = true
-    
+
 script: 
-  - coverage run manage.py test Game/tests
+  - coverage run manage.py test Game/tests.py
