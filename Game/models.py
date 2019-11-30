@@ -5,11 +5,17 @@ import datetime
 class Quiz(models.Model):
     quizz_name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.quizz_name
 
 
 class Question(models.Model):
     quizz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.question_text
+    
 
 
 
@@ -18,7 +24,8 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     answer = models.BooleanField(default=0)
 
-
+    def __str__(self):
+        return self.choice_text
 
 class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
@@ -28,6 +35,8 @@ class WaitingRoom(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     started = models.BooleanField(default=0)
 
+    def __str__(self):
+        return self.room_name
         
     def get_time_over(self):
         return self.created + datetime.timedelta(seconds=(self.time * len(self.quiz_type.question_set.all())))
@@ -50,6 +59,9 @@ class Player(models.Model):
     current_question = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.player_name
+        
     def reset_score(self):
         self.score = 0
         self.save()
