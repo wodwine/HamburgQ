@@ -8,7 +8,9 @@ git:
  # Install dependencies
 install:
   - pip install -r requirements.txt
+
+env:
+    - TRAVIS_SECURE_ENV_VARS = true
     
- # script to run tests. Script can have many commands, one per line.
 script: 
-  - python manage.py test
+  - coverage run manage.py test Game/tests
