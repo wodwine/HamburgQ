@@ -3,8 +3,8 @@
 branch = True
 omit = 
         *__init__*
-        *manage.py*
-        *Game/views*
+        manage.py
+        Game/views.py
 
 
 [report]
