@@ -1,6 +1,5 @@
 language: python
-python:
-  git - "3.6"
+python: "3.6"
 git:
   depth: 1
 install:
