@@ -116,6 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+CODECOV_TOKEN=config('CODECOV_TOKEN')
+
 TIME_ZONE = config('TIME_ZONE',default = 'UTC')
 
 USE_I18N = True
