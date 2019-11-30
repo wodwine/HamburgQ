@@ -4,6 +4,7 @@ branch = True
 omit = 
         *__init__*
         *views.py*
+        *manage.py*
 
 
 [report]
