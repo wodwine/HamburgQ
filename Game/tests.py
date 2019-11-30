@@ -36,3 +36,5 @@ class WaitingRoomTests(TestCase):
 
     def test_eiei(self):
         self.assertEqual(1+5,6)
+        self.assertEqual(5*5,25)
+        
