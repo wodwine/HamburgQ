@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/wodwine/HamburgQ.svg?branch=master)](https://travis-ci.com/wodwine/HamburgQ)
 [![codecov](https://codecov.io/gh/wodwine/HamburgQ/branch/master/graph/badge.svg)](https://codecov.io/gh/wodwine/HamburgQ)
+<a href="www.google.com"><img src="Game/static/Home/hamb/ham.png"></a>
 # HamburgerQ
 **HamburgQ** is a Quiz-Game. The game is about answering the questions. There are many types of quiz which contains about 10-15 questions, and 4 choices per question. Host can create a room, the host also can choose the quiz type and the time per question, or you can access the the friend's room by Code ID which generate after the host create a room. The room show the number of player and each of the player name who now in the room waiting to play the game (including Host). After the game start, the 1st question will show and you have to answer in fix time. When the game end, each of the player score will show in the last and the score will be kept in the database to show in the first page of the game which is Score Board.
 
