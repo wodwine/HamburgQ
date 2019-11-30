@@ -2,9 +2,9 @@
 [run]
 branch = True
 omit = 
-        
-        manage.py
-        views.py
+        *__init__*
+        *manage.py*
+        Game/views.py
 
 
 [report]
