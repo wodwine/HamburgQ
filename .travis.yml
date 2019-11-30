@@ -14,3 +14,9 @@ env:
 
 script: 
   - coverage run manage.py test
+  
+after_success:
+  - codecov
+
+
+
