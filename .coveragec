@@ -2,8 +2,7 @@
 [run]
 branch = True
 omit = 
-        *manage.py*
-        Game/views.py
+        models.py
 
 
 [report]
