@@ -1,3 +1,4 @@
+<img src="Game/static/Home/hamb/ham.png">
 [![Build Status](https://travis-ci.com/wodwine/HamburgQ.svg?branch=master)](https://travis-ci.com/wodwine/HamburgQ)
 [![codecov](https://codecov.io/gh/wodwine/HamburgQ/branch/master/graph/badge.svg)](https://codecov.io/gh/wodwine/HamburgQ)
 # HamburgerQ
