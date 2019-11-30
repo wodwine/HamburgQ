@@ -20,6 +20,9 @@ def get_random_id():
     else:
         get_random_id()
 
+def admin(request):
+    return HttpResponse('admin')
+
 def home(request):
     player_temp=Player.objects.order_by('-streak')
     player=[]
