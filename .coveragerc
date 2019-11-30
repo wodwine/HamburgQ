@@ -2,7 +2,8 @@
 [run]
 branch = True
 omit = 
-        models.py
+        *__init__*
+        *views.py*
 
 
 [report]
