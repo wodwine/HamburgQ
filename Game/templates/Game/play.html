@@ -43,9 +43,9 @@
                                 <label class="col-md-11"><input type="radio" class="form-check-input" id="radio{{forloop.counter0}}" name="radio_answer" value="{{current_player.id}}$${{choice.id}}$${{room.room_id}}" required>{{choice}}</p></label>
                             {% endfor %}
                             <div class="row justify-content-center">
-                            <div class="col-md-0">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                                <div class="col-md-0">
+                                        <button type="submit" class="btn btn-info">Submit</button>
+                                </div>
                     </div>
                     </div>
                     </form>
@@ -79,10 +79,14 @@
         </div>
     </div>
     </div>
-
 </main>
+<div class="footer">
+    <div><a href="{% url 'Game:home' %}" class="btn-rounded btn-quit" >
+            Quit</a>
+    </div>
+</div>
 
-{% comment %} <script>
+<script>
 var roomTime = {{ room.time }};
 var currentPlayerId = {{current_player.id}};
 var roomId = {{room.room_id}};
@@ -104,7 +108,7 @@ window.onload = function () {
         display = document.querySelector('#time');
     startTimer(second_room, display);
 };
-</script> {% endcomment %}
+</script>
 <script src="{% static 'Game/js/quiz.js' %}"></script>
 </body>
 </html>
