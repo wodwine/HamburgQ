@@ -6,9 +6,11 @@
  
  body {
   overflow-x: hidden;
-  background-color: #d95648;
+  background-image: url(img/bg-result.jpg);
+  background-size: auto;                      /* <------ */
+  background-repeat: no-repeat;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  color: #f1cf4b;
+  color:rgb(31, 20, 20);
   margin: auto auto 4em;
 }
 
@@ -28,6 +30,9 @@ a:hover {
   color: #fed136 !important;
 }
 
+.text-room{
+  color: #f2fc9c;
+}
 
 h1,
 h2,
@@ -42,22 +47,6 @@ h6 {
 .btn {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 200;
-}
-
-.btn-rounded {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 200;
-  padding: 8px 20px;
-  border-radius: 27px;
-}
-
-.btn-quit {
-  background-color: #2db35f;
-  color: #fed136;
-}
-
-.btn-quit:hover{
-  color: rgb(139, 24, 24);
 }
 
 #mainNav {
@@ -129,35 +118,22 @@ h6 {
 .card-header {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #eccc8a;
   border-bottom: 1px solid #ffffff;
+  background-color: #fdbe01;
   font-family: 'Montserrat';
-  color: #674140;
-  
+  color: #674140; 
 }
 
-.text-head{
-  color: #a14435;
-}
-
-.normal-text {
-  color: #fffaef;
-}
 .card {
   border: none;
 }
 
-.bd-question {
+.bd {
   font-family: 'Montserrat';
-  background-color: #a14435;
-  color: white;
+  background: white;
+  color: #865f6d;
 }
 
-.bd-score {
-  font-family: 'Montserrat';
-  background-color: #edc562;
-  color: white;
-}
 
 .rim {
     height: 100%;
@@ -207,14 +183,4 @@ h6 {
     border-radius: 50%;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 10px;
-  width: 96%;
-  height: 66px;
-  text-align: right;
-  background-color: transparent;
-}
 

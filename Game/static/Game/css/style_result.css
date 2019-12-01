@@ -6,9 +6,11 @@
  
  body {
   overflow-x: hidden;
-  background-color: #d95648;
+  background-image: url(img/bg-result-all.jpg);
+  background-size: auto;                      /* <------ */
+  background-repeat: no-repeat;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  color: #f1cf4b;
+  color: rgb(31, 20, 20);
   margin: auto auto 4em;
 }
 
@@ -52,12 +54,12 @@ h6 {
 }
 
 .btn-quit {
-  background-color: #2db35f;
-  color: #fed136;
+  background-color: #d6cd8a;
+  color: #5e330f;
 }
 
 .btn-quit:hover{
-  color: rgb(139, 24, 24);
+  color: white;
 }
 
 #mainNav {
@@ -129,7 +131,6 @@ h6 {
 .card-header {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #eccc8a;
   border-bottom: 1px solid #ffffff;
   font-family: 'Montserrat';
   color: #674140;
@@ -147,15 +148,17 @@ h6 {
   border: none;
 }
 
-.bd-question {
-  font-family: 'Montserrat';
-  background-color: #a14435;
-  color: white;
+.custom-card-footer{
+  text-align: right
+}
+
+.card-header , .custom-card-footer{
+  background-color: #eba561;
 }
 
 .bd-score {
   font-family: 'Montserrat';
-  background-color: #edc562;
+  background-color: #b36347;
   color: white;
 }
 
@@ -207,14 +210,4 @@ h6 {
     border-radius: 50%;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 10px;
-  width: 96%;
-  height: 66px;
-  text-align: right;
-  background-color: transparent;
-}
 
