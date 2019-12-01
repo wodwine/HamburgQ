@@ -1,9 +1,8 @@
 import datetime
 
-from django.test import TestCase
-from django.utils import timezone
+from django.test import TestCase 
 
-from .models import WaitingRoom,Question,Quiz
+from Game.models import WaitingRoom,Quiz
 
 class WaitingRoomTests(TestCase):
 
@@ -33,8 +32,4 @@ class WaitingRoomTests(TestCase):
         wr.reset_create()
         wr.save()
         self.assertIs(wr.time_over(),False)
-
-    def test_eiei(self):
-        self.assertEqual(1+5,6)
-        self.assertEqual(5*5,25)
         
