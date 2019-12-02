@@ -31,11 +31,11 @@
     <div class="container">
       <div class="intro-text">
       {% if user.is_authenticated %}
-        <div class="intro-lead-in">Welcome {{user.username.title}} To HamBurgQ!</div>
+        <div class="intro-lead-in">Welcome {{user.username.upper}} To HamBurgQ!</div>
       {% else %}
         <div class="intro-lead-in">Welcome To HamBurgQ!</div>
       {% endif %}
-        <div class="intro-heading text-uppercase">Add something</div>
+        <div class="intro-heading text-uppercase">a quiz a day keep others away</div>
         <a class="btn btn-custom btn-xl text-uppercase js-scroll-trigger" href="{% url 'Game:login' %}" >Let's play
         </a>
         
