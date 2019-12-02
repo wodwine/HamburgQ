@@ -32,3 +32,11 @@ class WaitingRoomTests(TestCase):
         wr.reset_create()
         wr.save()
         self.assertIs(wr.time_over(),False)
+    
+    def test_room_name(self):
+        """"Test the name of the room"""
+        wr = WaitingRoom(room_name = "test_room")
+        self.assertEqual(wr.__str__(),"test_room")
+        wr = WaitingRoom(room_name = "test_Wine_room")
+        self.assertEqual(wr.__str__(),"test_Wine_room")
+        self.assertIs(wr.time_over(),False)
