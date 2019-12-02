@@ -38,7 +38,3 @@ class PlayerTest(TestCase):
         player.save()
         player.progress()
         self.assertEqual(player.streak,1000)
-
-
-
-

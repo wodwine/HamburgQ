@@ -32,4 +32,3 @@ class WaitingRoomTests(TestCase):
         wr.reset_create()
         wr.save()
         self.assertIs(wr.time_over(),False)
-        
