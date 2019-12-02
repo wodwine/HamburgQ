@@ -4,7 +4,7 @@ import datetime
 
 class Quiz(models.Model):
     quizz_name = models.CharField(max_length=200)
-    
+
     def __str__(self):
         return self.quizz_name
 
@@ -15,6 +15,8 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+    
+
 
 
 class Choice(models.Model):
@@ -24,7 +26,6 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
-
 
 class WaitingRoom(models.Model):
     room_name = models.CharField(max_length = 20)
@@ -57,10 +58,10 @@ class Player(models.Model):
     score = models.IntegerField(default=0)
     current_question = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
-    
+
     def __str__(self):
         return self.player_name
-
+        
     def reset_score(self):
         self.score = 0
         self.save()

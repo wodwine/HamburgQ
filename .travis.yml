@@ -1,11 +1,22 @@
 language: python
-    python:
-      - "3.6"
-    git:
-      depth: 1
-    env:
-      -DJANGO=1.8 DB=mysql
-    install:
-      - pip install -r requirements.txt
-    script:
-      - python manage.py test
+python: "3.6"
+    
+ # don't clone more than necessary
+git:
+  depth: 1
+    
+ # Install dependencies
+install:
+  - pip install -r requirements.txt
+
+env:
+    - TRAVIS_SECURE_ENV_VARS = true
+
+script: 
+  - coverage run manage.py test
+  
+after_success:
+  - codecov
+
+
+
