@@ -39,3 +39,4 @@ class WaitingRoomTests(TestCase):
         self.assertEqual(wr.__str__(),"test_room")
         wr = WaitingRoom(room_name = "test_Wine_room")
         self.assertEqual(wr.__str__(),"test_Wine_room")
+        self.assertIs(wr.time_over(),False)

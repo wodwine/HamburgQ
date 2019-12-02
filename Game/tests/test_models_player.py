@@ -45,4 +45,4 @@ class PlayerTest(TestCase):
         self.assertEqual(player.__str__(),"test")
         player = Player(player_name = "wine")
         self.assertEqual(player.__str__(),"wine")
-
+        self.assertEqual(player.streak,1000)
