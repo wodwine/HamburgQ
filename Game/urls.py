@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf.urls import handler404
+from Game import views
 
 app_name = 'Game'
 urlpatterns = [
@@ -21,3 +23,5 @@ urlpatterns = [
     path('wait_result/<int:RoomId>/<str:PlayerName>/',views.personal_result,name = 'result'),
     path('all_result/<int:RoomId>/<str:PlayerName>/',views.all_result,name = 'all_result'),
 ]
+
+handler404 = views.error_404

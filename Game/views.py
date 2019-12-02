@@ -173,3 +173,7 @@ def log_out_guest(request,player_id):
     instance = Player.objects.get(id=player_id)
     instance.delete()
     return redirect(reverse('Game:login_guest'))
+
+def error_404(request, exception):
+    data = {}
+    return render(request,'404.html', data)
