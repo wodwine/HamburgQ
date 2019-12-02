@@ -101,6 +101,7 @@ img::-moz-selection {
   background-color: #d3464c;
   border-color: #fed136;
   color: white;
+  margin: 0px 0px 0px 250px;
 }
 
 .btn-custom:active, .btn-custom:focus, .btn-custom:hover {
@@ -192,13 +193,13 @@ img::-moz-selection {
 }
 
 header.masthead {
-  text-align: center;
   color: palegoldenrod;
-  background-image: url("../img/header-bg-gif.gif");
+  background-image: url("../img/header-bg.gif");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  text-align: left;
 }
 
 header.masthead .intro-text {
