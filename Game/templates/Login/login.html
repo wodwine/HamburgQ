@@ -38,21 +38,22 @@
 <body>
 
   <section class="page-section" id="Play!">
-    <main class="login-form" style="margin:30px;">
+    <main class="login-form" style="margin:20px;">
     
         <div class="container">
 
          {% if user.is_authenticated %}
             <center><h3 class="section-heading text-uppercase">Let's Start!</h3></center>
-            </br><center><h3 class="section-subheading text-muted">Join on the right or Create on the left</h3></center>
+            </br><center><h3 class="section-subheading text-muted">Create a learning game or Switch to play!</h3></center>
           {% else %}
             <center><h3 class="section-heading text-uppercase">Login</h3></center>
-            </br><center><h3 class="section-subheading text-muted">Join on the right or Create on the left</h3></center>
+            </br><center><h3 class="section-subheading text-muted">Create a learning game or Join us to play! </h3></center>
           {% endif %}
 
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card shadow">
+                      <img src="{% static 'Login/img/card-h.jpg'%}" class="card-img-top" >
                         <div class="card-body">
                             <form action="" method="">
                                 <div class="form-group row">
@@ -72,6 +73,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card shadow">
+                     <img src="{% static 'Login/img/card-p.jpg'%}" class="card-img-top" >
                         <div class="card-body">
                             <form action="" method="">
                                 <div class="form-group row">
