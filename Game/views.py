@@ -131,7 +131,7 @@ def all_result(request,RoomId,PlayerName):
     if not waiting_room.time_over():
         return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
-    all_player = waiting_room.player_set.all()
+    all_player = waiting_room.player_set.order_by('-streak')
     context = {'player':player,'room':waiting_room,'all_player':all_player}
     return render(request,'Game/result_all.html',context)
 
