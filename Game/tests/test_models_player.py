@@ -39,6 +39,9 @@ class PlayerTest(TestCase):
         player.progress()
         self.assertEqual(player.streak,1000)
 
-
-
-
+    def test_name(self):
+        """Test the name of the player"""
+        player = Player(player_name = "test")
+        self.assertEqual(player.__str__(),"test")
+        player = Player(player_name = "wine")
+        self.assertEqual(player.__str__(),"wine")
