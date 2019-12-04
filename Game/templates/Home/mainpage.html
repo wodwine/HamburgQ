@@ -41,7 +41,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Scoreboard <img src="{% static 'Base/img/logo.png'%}" width="28" height="28"> </h2>
+          <h2 class="section-heading text-uppercase">Scoreboard <img src="{% static 'Base/img/logo.png'%}" width="28" height="28" > </h2>
           {% for p in player %}
           <h6 class="section-subheading text-muted">{{forloop.counter}}. {{p.player_name.title}} : {{p.streak}} streak</h6>
           {% endfor %}
@@ -51,11 +51,45 @@
   </section>
 
   <!-- Contact -->
-  <section class="page-section" id="contact">
+  <section class="contact-section" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-right">
           <h2 class="section-heading text-uppercase">Contact Us</h2>
+          {% comment %} <div class="row">
+            <div class="col-lg-9 text-contact text-left">
+              wodwine :
+              <br>mimew :
+              <br>popia :
+            </div>
+            <div class="col-lg-12 text-contact text-left">hi
+            {% comment %} <a href="https://github.com/wodwine"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+            <a href="https://www.facebook.com/wodwineptk"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a>
+            <br><a href="https://github.com/kidstylex"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+            <a href="https://www.facebook.com/fymws"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a>
+            <br><a href="https://github.com/326th"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+            <a href="https://www.facebook.com/profile.php?id=100006936062731"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a> {% endcomment %}
+            {% comment %} </div>
+          </div>  {% endcomment %}
+          <div class="row">
+            <div class="col-md-9.5">
+              <div class="text-contact text-left">
+              wodwine :
+              <br><br><br>mimew :
+              <br><br><br>popia :
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="btn-link text-left">
+              <a href="https://github.com/wodwine"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+              <a href="https://www.facebook.com/wodwineptk"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a>
+              <br><br><a href="https://github.com/kidstylex"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+              <a href="https://www.facebook.com/fymws"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a>
+              <br><br><a href="https://github.com/326th"><img src="{% static 'Home/img/gh-icon.png'%}" width="55" height="55"></a>
+              <a href="https://www.facebook.com/profile.php?id=100006936062731"><img src="{% static 'Home/img/fb-icon.png'%}" width="41" height="41"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
