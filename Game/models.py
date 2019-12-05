@@ -1,6 +1,22 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+import logging
+
+LOG_FILE_NAME = 'HamburQ.log'
+
+def configure_log(log_name:str):
+    """configure logger and log with name = argument"""
+    filehandler = logging.FileHandler(log_name)
+    root = logging.getLogger()
+    root.setLevel( logging.NOTSET )
+    filehandler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(
+        'time:%(asctime)s from "%(name)s" level:%(levelname)s -- %(message)s'
+        )
+    filehandler.setFormatter(formatter)
+    root = logging.getLogger()
+    root.addHandler(filehandler)
 
 class Quiz(models.Model):
     quizz_name = models.CharField(max_length=200)
@@ -58,6 +74,7 @@ class Player(models.Model):
     score = models.IntegerField(default=0)
     current_question = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
+    is_logged = models.BooleanField(default=0)
 
     def __str__(self):
         return self.player_name
@@ -75,5 +92,13 @@ class Player(models.Model):
     def add_score(self):
         self.score += 1
         self.save()
+
+    def log(self):
+        if not self.is_logged:
+            configure_log(LOG_FILE_NAME)
+            logger = logging.getLogger()
+            logger.info(f"{self.player_name} login room with id {self.room.room_id}")
+            self.is_logged = 1
+            self.save()
     
     
