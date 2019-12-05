@@ -7,7 +7,22 @@ from django.urls import reverse
 from django.views import generic
 import sqlite3
 from django.utils import timezone
+import logging
 
+LOG_FILE_NAME = 'HamburQ.log'
+
+def configure_log(log_name:str):
+    """configure logger and log with name = argument"""
+    filehandler = logging.FileHandler(log_name)
+    root = logging.getLogger()
+    root.setLevel( logging.NOTSET )
+    filehandler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(
+        'time:%(asctime)s from "%(name)s" level:%(levelname)s -- %(message)s'
+        )
+    filehandler.setFormatter(formatter)
+    root = logging.getLogger()
+    root.addHandler(filehandler)
 
 def get_random_id():
     new_name = ""
@@ -57,14 +72,20 @@ def create_room(request):
     except:
         return redirect(reverse("Game:login_host"))
     else:
+        configure_log(LOG_FILE_NAME)
+        logger = logging.getLogger()
+        logger.info(f"{str(request.user.username)} create room with id {room_unique_id}")
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
 
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
-def redirdirect_guest(request):
+def redirect_guest(request):
     get_code = request.POST['roomCode']
     get_name = request.POST['playerName']
+    configure_log(LOG_FILE_NAME)
+    logger = logging.getLogger()
+    logger.info(f"{str(get_name)} login room with id {get_code}")
     return redirect
 
 def waiting_room_host(request,RoomId):
