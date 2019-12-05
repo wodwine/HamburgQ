@@ -160,9 +160,11 @@ h6 {
   }
    
 }
- 
-.card {
+
+.card{
   border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 10px rgba(61, 61, 61, 0.05), 0 15px 40px rgba(44, 44, 44, 0.2);
 }
 
 .card-header {
@@ -170,8 +172,11 @@ h6 {
   margin-bottom: 0;
   background-color: #e0736f;
   border-bottom: 1px solid #ffffff;
-  font-family: 'Montserrat'
-  
+  font-family: 'Montserrat'; 
+}
+
+.card-header:first-child {
+  border-radius: 10px 10px 0px 0px;
 }
 
 .card-body {

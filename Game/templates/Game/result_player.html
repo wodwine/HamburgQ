@@ -34,11 +34,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body bd">
-                    for hamburger
-                        <form action="" method="">
-                            <div class="col-md-6 offset-md-10">   
-                            </div>
+                    <div class="card-body hamburger">
+                        <img src="{% static 'Game/css/img/loader.gif'%}">
                     </div>
                     </form>
                 </div>
@@ -65,7 +62,7 @@
 window.setTimeout(function () {
     window.location.href  = "{% url 'Game:all_result' room.room_id user.username %}"
 }, {{time}} * 1000);
-</script>
+</script> 
 </main>
 </body>
 </html>

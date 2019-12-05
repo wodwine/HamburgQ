@@ -36,13 +36,22 @@ h6 {
 }
 
 .page-section {
-  padding: 100px 0;
+  width: 100%;
+  height: 100vh;
+  padding: 53px 0 0;
+
+}
+
+.contact-section {
+  width: 100%;
+  height: 620px;
 }
 
 .page-section h2.section-heading {
   font-size: 40px;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  color: #474747;
 }
 
 .page-section h3.section-subheading {
@@ -56,35 +65,8 @@ h6 {
 
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 100px 0;
   }
-}
-
-::-moz-selection {
-  background: #fed136;
-  text-shadow: none;
-}
-
-::selection {
-  background: #fed136;
-  text-shadow: none;
-}
-
-img::-moz-selection {
-  background: transparent;
-}
-
-img::selection {
-  background: transparent;
-}
-
-img::-moz-selection {
-  background: transparent;
-}
-
-.fit {
-  max-width: 99%;
-  max-height: 99%;
 }
 
 .btn {
@@ -101,7 +83,7 @@ img::-moz-selection {
   background-color: #d3464c;
   border-color: #fed136;
   color: white;
-  margin: 0px 0px 0px 250px;
+  margin: 0 0 0 250px;
 }
 
 .btn-custom:active, .btn-custom:focus, .btn-custom:hover {
@@ -192,6 +174,37 @@ img::-moz-selection {
   }
 }
 
+section .card{
+  position: relative;
+  max-width: 350px;
+  max-height: 400px;
+  padding: 50px 20px;
+  background: #76c3f7 url("../img/sparkles.png");
+  border-radius: 10px;
+  border: 4px solid white;
+  box-shadow: 0 5px 10px rgba(61, 61, 61, 0.05), 0 15px 40px rgba(44, 44, 44, 0.2);
+  margin: 0 auto;
+  float: none; 
+  margin-bottom: 10px; 
+  animation: animate 2s linear infinite;
+  overflow: auto;
+}
+section ::-webkit-scrollbar-thumb{
+  background:#b7eaf7;
+  border-radius: 10px;
+}
+
+@keyframes animate
+{
+  0%
+  {
+    background-position: 0 0;
+  }
+  100%
+  {
+    background-position: 0 -64px;
+  }
+}
 header.masthead {
   color: palegoldenrod;
   background-image: url("../img/header-bg.gif");
@@ -247,55 +260,32 @@ section#scoreboard {
   background-color: #ffffff;
 }
 
+section#scoreboard .text-score{
+  color:rgb(66, 62, 58);
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-weight: 700;
+  padding: 0 0 0 50px;
+
+}
+
 section#contact {
-  background-color: #212529;
+  background-image: url("../img/contact.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover; 
 }
 
 section#contact .section-heading {
   color: #fff;
+  padding: 60px 95px 0px 0px;
 }
 
-section#contact .form-group {
-  margin-bottom: 25px;
-}
-
-section#contact .form-group input,
-section#contact .form-group textarea {
-  padding: 20px;
-}
-
-section#contact .form-group input.form-control {
-  height: auto;
-}
-
-section#contact .form-group textarea.form-control {
-  height: 248px;
-}
-
-section#contact .form-control:focus {
-  border-color: #fed136;
-  box-shadow: none;
-}
-
-section#contact ::-webkit-input-placeholder {
-  font-weight: 700;
-  color: #ced4da;
+section#contact .text-contact {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  color: #fff;
+  padding: 50px 0px 0px 820px;
 }
 
-section#contact :-moz-placeholder {
-  font-weight: 700;
-  color: #ced4da;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-section#contact :-ms-input-placeholder {
-  font-weight: 700;
-  color: #ced4da;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
 
 .footer {
   padding: 25px 0;
