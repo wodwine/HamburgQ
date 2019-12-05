@@ -80,13 +80,13 @@ def create_room(request):
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
-def redirect_guest(request):
-    get_code = request.POST['roomCode']
-    get_name = request.POST['playerName']
-    configure_log(LOG_FILE_NAME)
-    logger = logging.getLogger()
-    logger.info(f"{str(get_name)} login room with id {get_code}")
-    return redirect
+# def redirect_guest(request):
+#     get_code = request.POST['roomCode']
+#     get_name = request.POST['playerName']
+#     configure_log(LOG_FILE_NAME)
+#     logger = logging.getLogger()
+#     logger.info(f"{str(get_name)} login room with id {get_code}")
+#     return redirect
 
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
@@ -105,6 +105,7 @@ def waiting_room_guest(request,RoomId):
         if get_name not in list_player_name:
             player = Player(player_name=str(get_name),room = waiting_room)
             player.save()
+            player.log()
         all_player = waiting_room.player_set.all()
         player = Player.objects.get(player_name=get_name,room_id=waiting_room)
         # javascript boolean use lower case
