@@ -6,6 +6,7 @@
  
  body {
   overflow-x: hidden;
+  overflow-y: hidden;
   background-image: url(img/bg-result-all.jpg);
   background-size: auto;                      /* <------ */
   background-repeat: no-repeat;
@@ -144,10 +145,16 @@ h6 {
 .normal-text {
   color: #fffaef;
 }
+
 .card {
+  width: 300px;
   border: none;
 }
 
+.card-body{
+  overflow: auto;
+  max-height: 350px;
+}
 .custom-card-footer{
   text-align: right
 }
@@ -208,6 +215,15 @@ h6 {
 .centered img {
     width: 150px;
     border-radius: 50%;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+  background:transparent;
+}
+::-webkit-scrollbar-thumb{
+  background:rgba(245, 222, 179, 0.336);
+  border-radius: 6px;
 }
 
 

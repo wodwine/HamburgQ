@@ -6,8 +6,9 @@
  
  body {
   overflow-x: hidden;
+  overflow-y: hidden;
   background-image: url(img/bg-result.jpg);
-  background-size: auto;                      /* <------ */
+  background-size: auto;  
   background-repeat: no-repeat;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   color:rgb(31, 20, 20);
@@ -132,6 +133,16 @@ h6 {
   font-family: 'Montserrat';
   background: white;
   color: #865f6d;
+}
+
+.hamburger{
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  font-family: 'Montserrat';
+  color: white;
+  background-color: #a14435;
+  text-align: center;
 }
 
 

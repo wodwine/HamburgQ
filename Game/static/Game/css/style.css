@@ -5,7 +5,7 @@
  */
  
  body {
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #d95648;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   color: #f1cf4b;
@@ -126,8 +126,27 @@ h6 {
   }
 }
 
+.card{
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 10px #9700000d, 0 15px 40px rgba(165, 5, 5, 0.2);
+}
+
+.card-footer {
+  background-color:#a14435;
+  border: none;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .card-header {
-  padding: .75rem 1.25rem;
   margin-bottom: 0;
   background-color: #eccc8a;
   border-bottom: 1px solid #ffffff;
@@ -143,20 +162,30 @@ h6 {
 .normal-text {
   color: #fffaef;
 }
-.card {
-  border: none;
-}
 
 .bd-question {
   font-family: 'Montserrat';
   background-color: #a14435;
   color: white;
+  height: 280px;
+  overflow: auto;
 }
 
 .bd-score {
   font-family: 'Montserrat';
   background-color: #edc562;
   color: white;
+  height: 150px;
+}
+
+.hamburger{
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  font-family: 'Montserrat';
+  color: white;
+  background-color: #d95648;
+  text-align: center;
 }
 
 .rim {
@@ -211,10 +240,17 @@ h6 {
   position: fixed;
   left: 0;
   bottom: 0;
-  padding: 10px;
   width: 96%;
   height: 66px;
   text-align: right;
   background-color: transparent;
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+  background:transparent;
+}
+::-webkit-scrollbar-thumb{
+  background:#2525255d;
+  border-radius: 6px;
+}
