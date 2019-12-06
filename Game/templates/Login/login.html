@@ -59,7 +59,7 @@
                                 <div class="form-group row">
                                   <div class="col-md-12 text-center">
                                     {% if user.is_authenticated %}
-                                      <a href="{% url 'Game:login_host' %}" target="_self" class="btn btn-danger btn-md">create room</a>
+                                      <a name = "create_room"href="{% url 'Game:login_host' %}" target="_self" class="btn btn-danger btn-md">create room</a>
                                     {% else %}
                                       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger">Host
                                       </a>
