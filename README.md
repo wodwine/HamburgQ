@@ -72,6 +72,6 @@ Open the Terminal and use command:
     python manage.py loaddata quiz.json
 
 
-Step9: Run server at localhost:8000
+### Step9: Run server at localhost:8000
 
     python manage.py runserver --insecure
