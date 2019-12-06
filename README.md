@@ -27,3 +27,51 @@ kidstylex    |   Arisa Pangpeng |              Developer (Front-end)
 
 - Python 3.7 or above
 - Django 2.2.5
+
+## Installation Steps
+
+### Step 1: Clone the project to your local directory.
+
+Open the Terminal and use command:
+
+    git clone https://github.com/wodwine/HamburgQ
+
+### Step 2: Go to the directory.
+
+    cd HamburgQ/
+
+### Step 3: Create new virtual enviroment.
+
+    virtualenv env
+
+### Step 4: Activate virtualenv.
+
+***On MacOS and Linux:***
+
+    source venv/bin/activate
+
+***On Windows:***
+
+    venv\Scripts\activate
+
+### Step 5: Rename `.env-example` in the root directory of project to `.env`
+
+### Step 6: Install all required packages.
+
+    pip install -r requirements.txt
+
+### Step 7: Create database tables.
+
+    python manage.py migrate
+
+
+
+### Step 8: Load data dump from `Quiz.json`
+
+
+    python manage.py loaddata quiz.json
+
+
+Step9: Run server at localhost:8000
+
+    python manage.py runserver --insecure
