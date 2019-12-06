@@ -1,0 +1,162 @@
+[
+{
+  "model": "Game.quiz",
+  "pk": 1,
+  "fields": {
+    "quizz_name": "Harry Potter"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 2,
+  "fields": {
+    "quizz_name": "Kasetsart University"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 3,
+  "fields": {
+    "quizz_name": "Mathematicals"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 4,
+  "fields": {
+    "quizz_name": "Thailand"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 1,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the guardian animal of Harry Potter ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 2,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Who is the girl crying in the bathroom ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 3,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the spell that can delete the memories of people ?"
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 1,
+  "fields": {
+    "question": 1,
+    "choice_text": "Deer",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 2,
+  "fields": {
+    "question": 1,
+    "choice_text": "Rat",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 3,
+  "fields": {
+    "question": 1,
+    "choice_text": "Otter",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 4,
+  "fields": {
+    "question": 1,
+    "choice_text": "Bird",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "choice_text": "Hermione Granger",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "choice_text": "Moaning myrtle",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 7,
+  "fields": {
+    "question": 2,
+    "choice_text": "Sho Shang",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 8,
+  "fields": {
+    "question": 2,
+    "choice_text": "Luna Lovegood",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 9,
+  "fields": {
+    "question": 3,
+    "choice_text": "Obliviate",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 10,
+  "fields": {
+    "question": 3,
+    "choice_text": "Avada kedavra",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 11,
+  "fields": {
+    "question": 3,
+    "choice_text": "Expecto patronum",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 12,
+  "fields": {
+    "question": 3,
+    "choice_text": "Expelliarmus",
+    "answer": false
+  }
+}
+]

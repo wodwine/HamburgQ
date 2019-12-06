@@ -66,7 +66,7 @@ Open the Terminal and use command:
 
 
 
-### Step 8: Load data dump from `Quiz.json`
+### Step 8: Load data dump from `data.json`
 
 
     python manage.py loaddata quiz.json
