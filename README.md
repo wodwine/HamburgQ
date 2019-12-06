@@ -69,7 +69,7 @@ Open the Terminal and use command:
 ### Step 8: Load data dump from `data.json`
 
 
-    python manage.py loaddata quiz.json
+    python manage.py loaddata data.json
 
 
 ### Step9: Run server at localhost:8000

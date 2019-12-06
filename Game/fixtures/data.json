@@ -1,5 +1,17 @@
 [
 {
+  "model": "Game.waitingroom",
+  "pk": 1,
+  "fields": {
+    "room_name": "SKE",
+    "room_id": 916838,
+    "quiz_type": 1,
+    "time": 5,
+    "created": "2019-12-06T09:37:48.927Z",
+    "started": true
+  }
+},
+{
   "model": "Game.quiz",
   "pk": 1,
   "fields": {
@@ -157,6 +169,71 @@
     "question": 3,
     "choice_text": "Expelliarmus",
     "answer": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 1,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 1,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 2,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 1,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 3,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 1,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 4,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 1,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 5,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 1,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
   }
 }
 ]
