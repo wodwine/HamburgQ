@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from django.conf.urls import handler404
+from django.conf.urls import handler404,handler500
 from Game import views
 
 app_name = 'Game'
