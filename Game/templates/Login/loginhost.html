@@ -53,7 +53,7 @@
                                                 {% if quiz %}
                                                 <select class="btn btn-info dropdown-toggle" name = "quiz_name">
                                                     {% for q in quiz %}
-                                                    <option value = "{{ q.quizz_name }}">{{ q.quizz_name }}</option>
+                                                    <option name ="count_question {{ forloop.counter }}" id = "{{ q.get_question_count }}"value = "{{ q.quizz_name }}">{{ q.quizz_name }}</option>
                                                     {% endfor %}
                                                 </select>
                                                 {% else %}

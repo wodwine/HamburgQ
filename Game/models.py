@@ -23,6 +23,9 @@ class Quiz(models.Model):
 
     def __str__(self):
         return self.quizz_name
+    
+    def get_question_count(self):
+        return len(self.question_set.all())
 
 
 class Question(models.Model):
