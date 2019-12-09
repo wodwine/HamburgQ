@@ -1,5 +1,6 @@
 import os
 from decouple import config
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -97,3 +98,5 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
