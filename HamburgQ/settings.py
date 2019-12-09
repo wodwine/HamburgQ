@@ -7,7 +7,7 @@ SECRET_KEY = config("SECRET_KEY",default = 'sefwejgmerijgmerohkb')
 
 DEBUG = config("DEBUG", cast=bool,default = False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast = list)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS')
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.apps.googleusercontent.com'
