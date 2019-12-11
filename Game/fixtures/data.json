@@ -190,6 +190,86 @@
   }
 },
 {
+  "model": "Game.question",
+  "pk": 16,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Who induce Harry to play Quidditch?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 17,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "How many people who built the Hogwart school?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 18,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Where is the place that Harry's parents die?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 19,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Who is the Harry's godfather?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 20,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Where is the place that Hary buy the wand?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 21,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the spell that can make something float?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 22,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the spell that can disarm other people's wand?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 23,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Who is the person that Severus Snepp like?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 24,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Who is the Harry's sibling?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 25,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the name of the wizard's bank in London?"
+  }
+},
+{
   "model": "Game.choice",
   "pk": 1,
   "fields": {
@@ -726,6 +806,366 @@
   "fields": {
     "question": 15,
     "choice_text": "{x|20<x<25 or x % 9 ==0}",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 61,
+  "fields": {
+    "question": 16,
+    "choice_text": "Dumbledorr",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 62,
+  "fields": {
+    "question": 16,
+    "choice_text": "Maggonnagul",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 63,
+  "fields": {
+    "question": 16,
+    "choice_text": "Hagrid",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 64,
+  "fields": {
+    "question": 16,
+    "choice_text": "Hermione",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 65,
+  "fields": {
+    "question": 17,
+    "choice_text": "3",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 66,
+  "fields": {
+    "question": 17,
+    "choice_text": "4",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 67,
+  "fields": {
+    "question": 17,
+    "choice_text": "5",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 68,
+  "fields": {
+    "question": 17,
+    "choice_text": "6",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 69,
+  "fields": {
+    "question": 18,
+    "choice_text": "Goddrig Hollow",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 70,
+  "fields": {
+    "question": 18,
+    "choice_text": "London",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 71,
+  "fields": {
+    "question": 18,
+    "choice_text": "Paris",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 72,
+  "fields": {
+    "question": 18,
+    "choice_text": "Diairgon",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 73,
+  "fields": {
+    "question": 19,
+    "choice_text": "Severus Snepp",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 74,
+  "fields": {
+    "question": 19,
+    "choice_text": "Dumbledorr",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 75,
+  "fields": {
+    "question": 19,
+    "choice_text": "Hagrid",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 76,
+  "fields": {
+    "question": 19,
+    "choice_text": "Serius Black",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 77,
+  "fields": {
+    "question": 20,
+    "choice_text": "Olivander",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 78,
+  "fields": {
+    "question": 20,
+    "choice_text": "Hogwart",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 79,
+  "fields": {
+    "question": 20,
+    "choice_text": "Goddrig Hollow",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 80,
+  "fields": {
+    "question": 20,
+    "choice_text": "Burmatong School",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 81,
+  "fields": {
+    "question": 21,
+    "choice_text": "Expecto patronum",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 82,
+  "fields": {
+    "question": 21,
+    "choice_text": "Expecto patronum",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 83,
+  "fields": {
+    "question": 21,
+    "choice_text": "Obliviate",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 84,
+  "fields": {
+    "question": 21,
+    "choice_text": "Wingardium leviosa",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 85,
+  "fields": {
+    "question": 22,
+    "choice_text": "Expelliarmus",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 86,
+  "fields": {
+    "question": 22,
+    "choice_text": "Obliviate",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 87,
+  "fields": {
+    "question": 22,
+    "choice_text": "Expecto patronum",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 88,
+  "fields": {
+    "question": 22,
+    "choice_text": "Wingardium leviosa",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 89,
+  "fields": {
+    "question": 23,
+    "choice_text": "Harry Potter",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 90,
+  "fields": {
+    "question": 23,
+    "choice_text": "Luna Lovegood",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 91,
+  "fields": {
+    "question": 23,
+    "choice_text": "Lilly Potter",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 92,
+  "fields": {
+    "question": 23,
+    "choice_text": "James Potter",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 93,
+  "fields": {
+    "question": 24,
+    "choice_text": "Ronal Weasley",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 94,
+  "fields": {
+    "question": 24,
+    "choice_text": "Dusley Durseley",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 95,
+  "fields": {
+    "question": 24,
+    "choice_text": "Goerge Weasley",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 96,
+  "fields": {
+    "question": 24,
+    "choice_text": "Navil Longbuttom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 97,
+  "fields": {
+    "question": 25,
+    "choice_text": "Gringgot",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 98,
+  "fields": {
+    "question": 25,
+    "choice_text": "SCB",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 99,
+  "fields": {
+    "question": 25,
+    "choice_text": "Horgwart",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 100,
+  "fields": {
+    "question": 25,
+    "choice_text": "Goblin",
     "answer": false
   }
 }
