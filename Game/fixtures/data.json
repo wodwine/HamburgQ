@@ -1,17 +1,5 @@
 [
 {
-  "model": "Game.waitingroom",
-  "pk": 1,
-  "fields": {
-    "room_name": "SKE",
-    "room_id": 916838,
-    "quiz_type": 1,
-    "time": 5,
-    "created": "2019-12-06T09:37:48.927Z",
-    "started": true
-  }
-},
-{
   "model": "Game.quiz",
   "pk": 1,
   "fields": {
@@ -40,6 +28,48 @@
   }
 },
 {
+  "model": "Game.quiz",
+  "pk": 5,
+  "fields": {
+    "quizz_name": "7 Wonders of the ancient world\n"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 6,
+  "fields": {
+    "quizz_name": "7 Wonders of the modern world"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 7,
+  "fields": {
+    "quizz_name": "Taylor Swift"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 8,
+  "fields": {
+    "quizz_name": "Blackpink"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 9,
+  "fields": {
+    "quizz_name": "Computer Engineering at KU"
+  }
+},
+{
+  "model": "Game.quiz",
+  "pk": 10,
+  "fields": {
+    "quizz_name": "General Knowledge"
+  }
+},
+{
   "model": "Game.question",
   "pk": 1,
   "fields": {
@@ -61,6 +91,102 @@
   "fields": {
     "quizz_id": 1,
     "question_text": "What is the spell that can delete the memories of people ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 4,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "Which one is the boggart that show Harry's scariest ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 5,
+  "fields": {
+    "quizz_id": 1,
+    "question_text": "What is the name of Albus Dumbledore's wand ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 6,
+  "fields": {
+    "quizz_id": 2,
+    "question_text": "What is the Kasetsart university symbol?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 7,
+  "fields": {
+    "quizz_id": 2,
+    "question_text": "What is the Kasetsart university tree?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 8,
+  "fields": {
+    "quizz_id": 2,
+    "question_text": "The trees that the King and the Queen planted is?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 9,
+  "fields": {
+    "quizz_id": 2,
+    "question_text": "What's happened when we see a white squirel?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 10,
+  "fields": {
+    "quizz_id": 2,
+    "question_text": "What's happened when we see a turtle?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 11,
+  "fields": {
+    "quizz_id": 3,
+    "question_text": "sin 2A = ???"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 12,
+  "fields": {
+    "quizz_id": 3,
+    "question_text": "What is the fundamental theorem of calculus ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 13,
+  "fields": {
+    "quizz_id": 3,
+    "question_text": "55%7+(4/5*15+2) = ???"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 14,
+  "fields": {
+    "quizz_id": 3,
+    "question_text": "Which one of the following is not a parallelogram ?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 15,
+  "fields": {
+    "quizz_id": 3,
+    "question_text": "Which one is empty set ?"
   }
 },
 {
@@ -172,68 +298,435 @@
   }
 },
 {
-  "model": "Game.player",
-  "pk": 1,
+  "model": "Game.choice",
+  "pk": 13,
   "fields": {
-    "status": "Host",
-    "player_name": "Dummy",
-    "room": 1,
-    "score": 0,
-    "current_question": 0,
-    "streak": 0,
-    "is_logged": false
+    "question": 4,
+    "choice_text": "Dementor",
+    "answer": true
   }
 },
 {
-  "model": "Game.player",
-  "pk": 2,
+  "model": "Game.choice",
+  "pk": 14,
   "fields": {
-    "status": "Host",
-    "player_name": "Dummy",
-    "room": 1,
-    "score": 0,
-    "current_question": 0,
-    "streak": 0,
-    "is_logged": false
+    "question": 4,
+    "choice_text": "Snake",
+    "answer": false
   }
 },
 {
-  "model": "Game.player",
-  "pk": 3,
+  "model": "Game.choice",
+  "pk": 15,
   "fields": {
-    "status": "Host",
-    "player_name": "Dummy",
-    "room": 1,
-    "score": 0,
-    "current_question": 0,
-    "streak": 0,
-    "is_logged": false
+    "question": 4,
+    "choice_text": "Severus Snape",
+    "answer": false
   }
 },
 {
-  "model": "Game.player",
-  "pk": 4,
+  "model": "Game.choice",
+  "pk": 16,
   "fields": {
-    "status": "Host",
-    "player_name": "Dummy",
-    "room": 1,
-    "score": 0,
-    "current_question": 0,
-    "streak": 0,
-    "is_logged": false
+    "question": 4,
+    "choice_text": "Clowns",
+    "answer": false
   }
 },
 {
-  "model": "Game.player",
-  "pk": 5,
+  "model": "Game.choice",
+  "pk": 17,
   "fields": {
-    "status": "Host",
-    "player_name": "Dummy",
-    "room": 1,
-    "score": 0,
-    "current_question": 0,
-    "streak": 0,
-    "is_logged": false
+    "question": 5,
+    "choice_text": "Bomblaster wand ",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 18,
+  "fields": {
+    "question": 5,
+    "choice_text": "Older wand",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 19,
+  "fields": {
+    "question": 5,
+    "choice_text": "Phoenix wand",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 20,
+  "fields": {
+    "question": 5,
+    "choice_text": "Elder wand",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 21,
+  "fields": {
+    "question": 6,
+    "choice_text": "Phra Phrom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 22,
+  "fields": {
+    "question": 6,
+    "choice_text": "Phra Vishnu",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 23,
+  "fields": {
+    "question": 6,
+    "choice_text": "Phra Phirun",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 24,
+  "fields": {
+    "question": 6,
+    "choice_text": "Phra In",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 25,
+  "fields": {
+    "question": 7,
+    "choice_text": "Samanea saman ",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 26,
+  "fields": {
+    "question": 7,
+    "choice_text": "Nontri",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 27,
+  "fields": {
+    "question": 7,
+    "choice_text": "Golden Shower Tree",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 28,
+  "fields": {
+    "question": 7,
+    "choice_text": "Sunflower",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 29,
+  "fields": {
+    "question": 8,
+    "choice_text": "Samanea saman ",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 30,
+  "fields": {
+    "question": 8,
+    "choice_text": "Nontri",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 31,
+  "fields": {
+    "question": 8,
+    "choice_text": "Golden Shower Tree",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 32,
+  "fields": {
+    "question": 8,
+    "choice_text": "Sunflower",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 33,
+  "fields": {
+    "question": 9,
+    "choice_text": "Bad luck ",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 34,
+  "fields": {
+    "question": 9,
+    "choice_text": "Get an F",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 35,
+  "fields": {
+    "question": 9,
+    "choice_text": "Get an A",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 36,
+  "fields": {
+    "question": 9,
+    "choice_text": "Get money",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 37,
+  "fields": {
+    "question": 10,
+    "choice_text": "Bad luck ",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 38,
+  "fields": {
+    "question": 10,
+    "choice_text": "Get an F",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 39,
+  "fields": {
+    "question": 10,
+    "choice_text": "Get an A",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 40,
+  "fields": {
+    "question": 10,
+    "choice_text": "Get money",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 41,
+  "fields": {
+    "question": 11,
+    "choice_text": "sinAcosA",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 42,
+  "fields": {
+    "question": 11,
+    "choice_text": "cosA/2sinA/2",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 43,
+  "fields": {
+    "question": 11,
+    "choice_text": "2sinAcosA",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 44,
+  "fields": {
+    "question": 11,
+    "choice_text": "2cosA/2sinA/2",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 45,
+  "fields": {
+    "question": 12,
+    "choice_text": "Differentiate",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 46,
+  "fields": {
+    "question": 12,
+    "choice_text": "Integration",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 47,
+  "fields": {
+    "question": 12,
+    "choice_text": "Pythagoras",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 48,
+  "fields": {
+    "question": 12,
+    "choice_text": "Terminology",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 49,
+  "fields": {
+    "question": 13,
+    "choice_text": "20",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 50,
+  "fields": {
+    "question": 13,
+    "choice_text": "19.6",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 51,
+  "fields": {
+    "question": 13,
+    "choice_text": "8.05",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 52,
+  "fields": {
+    "question": 13,
+    "choice_text": "13",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 53,
+  "fields": {
+    "question": 14,
+    "choice_text": "Rectangle",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 54,
+  "fields": {
+    "question": 14,
+    "choice_text": "Circle",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 55,
+  "fields": {
+    "question": 14,
+    "choice_text": "Rhombus",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 56,
+  "fields": {
+    "question": 14,
+    "choice_text": "Rhomboid",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 57,
+  "fields": {
+    "question": 15,
+    "choice_text": "{x|x is a people with 180 cm hight in the world}",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 58,
+  "fields": {
+    "question": 15,
+    "choice_text": "{x|if x != 100, then x>100}",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 59,
+  "fields": {
+    "question": 15,
+    "choice_text": "{x|20<x<25 and x % 9 ==0}",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 60,
+  "fields": {
+    "question": 15,
+    "choice_text": "{x|20<x<25 or x % 9 ==0}",
+    "answer": false
   }
 }
 ]
