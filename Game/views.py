@@ -8,6 +8,7 @@ from django.views import generic
 import sqlite3
 from django.utils import timezone
 import logging
+import random
 
 LOG_FILE_NAME = 'HamburQ.log'
 
@@ -178,7 +179,8 @@ def start_quiz(request,RoomId,PlayerName):
             index = pointer
     dict_question = {'question': question,
                     'index':index+1}
-    choices_list = question.choice_set.all()
+    choices_list = list(question.choice_set.all().order_by('choice_text')[:10])
+    random.shuffle(choices_list)
     context = {'room' : waiting_room , 'quiz':quiz ,'dict_question':dict_question ,'choices':choices_list,'current_player':player,'number':len(question_set)}
     return render(request, 'Game/play.html', context)
 

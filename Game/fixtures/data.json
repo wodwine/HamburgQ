@@ -270,6 +270,126 @@
   }
 },
 {
+  "model": "Game.question",
+  "pk": 26,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which country that can produce the most Copper?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 27,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which one is the first country that can sail the sea?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 28,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Rome is the most powerful country in whom age?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 29,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which is the best country that can handle the trash?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 30,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Why Spain pick 12 October to be the a national day?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 31,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which is the biggest country in the world?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 32,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "HIV was found the first time in which country?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 33,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which is the biggest mountain range in the world?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 34,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which is the longest mountain range in the world?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 35,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "The oldest Chinese civilization was in which area?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 36,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Which country eat fish the most in the world?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 37,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Who is the first Pope?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 38,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Where is the first place of human follow the Bible?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 39,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Who was let Jew independent from ancient Egypt?"
+  }
+},
+{
+  "model": "Game.question",
+  "pk": 40,
+  "fields": {
+    "quizz_id": 10,
+    "question_text": "Who is the person that invent multiplication table?"
+  }
+},
+{
   "model": "Game.choice",
   "pk": 1,
   "fields": {
@@ -1166,6 +1286,546 @@
   "fields": {
     "question": 25,
     "choice_text": "Goblin",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 101,
+  "fields": {
+    "question": 26,
+    "choice_text": "United State",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 102,
+  "fields": {
+    "question": 26,
+    "choice_text": "United Kingdom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 103,
+  "fields": {
+    "question": 26,
+    "choice_text": "Thailand",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 104,
+  "fields": {
+    "question": 26,
+    "choice_text": "China",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 105,
+  "fields": {
+    "question": 27,
+    "choice_text": "Egypt",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 106,
+  "fields": {
+    "question": 27,
+    "choice_text": "England",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 107,
+  "fields": {
+    "question": 27,
+    "choice_text": "Spain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 108,
+  "fields": {
+    "question": 27,
+    "choice_text": "Italy",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 109,
+  "fields": {
+    "question": 28,
+    "choice_text": "Alexander",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 110,
+  "fields": {
+    "question": 28,
+    "choice_text": "Julius Caesar",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 111,
+  "fields": {
+    "question": 28,
+    "choice_text": "Falcon",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 112,
+  "fields": {
+    "question": 28,
+    "choice_text": "Prometheus",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 113,
+  "fields": {
+    "question": 29,
+    "choice_text": "Thailand",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 114,
+  "fields": {
+    "question": 29,
+    "choice_text": "China",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 115,
+  "fields": {
+    "question": 29,
+    "choice_text": "India",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 116,
+  "fields": {
+    "question": 29,
+    "choice_text": "Japan",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 117,
+  "fields": {
+    "question": 30,
+    "choice_text": "Columbus found the North America",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 118,
+  "fields": {
+    "question": 30,
+    "choice_text": "Freedom from United Kingdom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 119,
+  "fields": {
+    "question": 30,
+    "choice_text": "Good day Good number",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 120,
+  "fields": {
+    "question": 30,
+    "choice_text": "Nothing extraordinary",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 121,
+  "fields": {
+    "question": 31,
+    "choice_text": "China",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 122,
+  "fields": {
+    "question": 31,
+    "choice_text": "Russia",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 123,
+  "fields": {
+    "question": 31,
+    "choice_text": "United State",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 124,
+  "fields": {
+    "question": 31,
+    "choice_text": "Canada",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 125,
+  "fields": {
+    "question": 32,
+    "choice_text": "Russia",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 126,
+  "fields": {
+    "question": 32,
+    "choice_text": "China",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 127,
+  "fields": {
+    "question": 32,
+    "choice_text": "United State",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 128,
+  "fields": {
+    "question": 32,
+    "choice_text": "Canada",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 129,
+  "fields": {
+    "question": 33,
+    "choice_text": "Andes mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 130,
+  "fields": {
+    "question": 33,
+    "choice_text": "Himalaya mountain",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 131,
+  "fields": {
+    "question": 33,
+    "choice_text": "Kao Loung mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 132,
+  "fields": {
+    "question": 33,
+    "choice_text": "Tanowsri mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 133,
+  "fields": {
+    "question": 34,
+    "choice_text": "Kao Loung mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 134,
+  "fields": {
+    "question": 34,
+    "choice_text": "Himalaya mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 135,
+  "fields": {
+    "question": 34,
+    "choice_text": "Andes mountain",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 136,
+  "fields": {
+    "question": 34,
+    "choice_text": "Tanowsri mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 137,
+  "fields": {
+    "question": 35,
+    "choice_text": "Houngho river",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 138,
+  "fields": {
+    "question": 35,
+    "choice_text": "Yangzee river",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 139,
+  "fields": {
+    "question": 35,
+    "choice_text": "Lueng river",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 140,
+  "fields": {
+    "question": 35,
+    "choice_text": "Hainum river",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 141,
+  "fields": {
+    "question": 36,
+    "choice_text": "Thailand",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 142,
+  "fields": {
+    "question": 36,
+    "choice_text": "United State",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 143,
+  "fields": {
+    "question": 36,
+    "choice_text": "United Kingdom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 144,
+  "fields": {
+    "question": 36,
+    "choice_text": "Japan",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 145,
+  "fields": {
+    "question": 37,
+    "choice_text": "Alexander",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 146,
+  "fields": {
+    "question": 37,
+    "choice_text": "Sain Peter",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 147,
+  "fields": {
+    "question": 37,
+    "choice_text": "Francisco",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 148,
+  "fields": {
+    "question": 37,
+    "choice_text": "Romeo",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 149,
+  "fields": {
+    "question": 38,
+    "choice_text": "Eden garden",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 150,
+  "fields": {
+    "question": 38,
+    "choice_text": "Himalaya mountain",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 151,
+  "fields": {
+    "question": 38,
+    "choice_text": "Pandora area",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 152,
+  "fields": {
+    "question": 38,
+    "choice_text": "Loving way",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 153,
+  "fields": {
+    "question": 39,
+    "choice_text": "Prayuth",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 154,
+  "fields": {
+    "question": 39,
+    "choice_text": "Moses",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 155,
+  "fields": {
+    "question": 39,
+    "choice_text": "Hitler",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 156,
+  "fields": {
+    "question": 39,
+    "choice_text": "Pom",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 157,
+  "fields": {
+    "question": 40,
+    "choice_text": "Newton",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 158,
+  "fields": {
+    "question": 40,
+    "choice_text": "Pythagoras",
+    "answer": true
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 159,
+  "fields": {
+    "question": 40,
+    "choice_text": "Euler",
+    "answer": false
+  }
+},
+{
+  "model": "Game.choice",
+  "pk": 160,
+  "fields": {
+    "question": 40,
+    "choice_text": "Guass",
     "answer": false
   }
 }
