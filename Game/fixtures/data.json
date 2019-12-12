@@ -1789,7 +1789,7 @@
 },
 {
   "model": "Game.waitingroom",
-  "pk": 0,
+  "pk": 1,
   "fields": {
     "room_name": "Dummy Room",
     "room_id": 123456,
@@ -1805,7 +1805,7 @@
   "fields": {
     "status": "Host",
     "player_name": "Dummy",
-    "room": 0,
+    "room": 1,
     "score": 0,
     "current_question": 0,
     "streak": 0,
@@ -1818,7 +1818,7 @@
   "fields": {
     "status": "Host",
     "player_name": "Dummy",
-    "room": 0,
+    "room": 1,
     "score": 0,
     "current_question": 0,
     "streak": 0,
@@ -1831,7 +1831,7 @@
   "fields": {
     "status": "Host",
     "player_name": "Dummy",
-    "room": 0,
+    "room": 1,
     "score": 0,
     "current_question": 0,
     "streak": 0,
@@ -1844,7 +1844,7 @@
   "fields": {
     "status": "Host",
     "player_name": "Dummy",
-    "room": 0,
+    "room": 1,
     "score": 0,
     "current_question": 0,
     "streak": 0,
