@@ -1857,7 +1857,7 @@
   "fields": {
     "status": "Host",
     "player_name": "Dummy",
-    "room": 0,
+    "room": 1,
     "score": 0,
     "current_question": 0,
     "streak": 0,
