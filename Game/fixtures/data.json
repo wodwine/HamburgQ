@@ -22,48 +22,6 @@
 },
 {
   "model": "Game.quiz",
-  "pk": 4,
-  "fields": {
-    "quizz_name": "Thailand"
-  }
-},
-{
-  "model": "Game.quiz",
-  "pk": 5,
-  "fields": {
-    "quizz_name": "7 Wonders of the ancient world\n"
-  }
-},
-{
-  "model": "Game.quiz",
-  "pk": 6,
-  "fields": {
-    "quizz_name": "7 Wonders of the modern world"
-  }
-},
-{
-  "model": "Game.quiz",
-  "pk": 7,
-  "fields": {
-    "quizz_name": "Taylor Swift"
-  }
-},
-{
-  "model": "Game.quiz",
-  "pk": 8,
-  "fields": {
-    "quizz_name": "Blackpink"
-  }
-},
-{
-  "model": "Game.quiz",
-  "pk": 9,
-  "fields": {
-    "quizz_name": "Computer Engineering at KU"
-  }
-},
-{
-  "model": "Game.quiz",
   "pk": 10,
   "fields": {
     "quizz_name": "General Knowledge"
@@ -1827,6 +1785,83 @@
     "question": 40,
     "choice_text": "Guass",
     "answer": false
+  }
+},
+{
+  "model": "Game.waitingroom",
+  "pk": 0,
+  "fields": {
+    "room_name": "Dummy Room",
+    "room_id": 123456,
+    "quiz_type": 1,
+    "time": 5,
+    "created": "2019-12-11T16:09:27.366Z",
+    "started": true
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 1,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 0,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 2,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 0,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 3,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 0,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 4,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 0,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
+  }
+},
+{
+  "model": "Game.player",
+  "pk": 5,
+  "fields": {
+    "status": "Host",
+    "player_name": "Dummy",
+    "room": 0,
+    "score": 0,
+    "current_question": 0,
+    "streak": 0,
+    "is_logged": false
   }
 }
 ]
