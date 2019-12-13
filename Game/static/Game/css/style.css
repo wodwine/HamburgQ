@@ -5,7 +5,7 @@
  */
  
  body {
-  overflow: hidden;
+  overflow: scroll;
   background-color: #d95648;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   color: #f1cf4b;
@@ -180,7 +180,7 @@ h6 {
 
 .hamburger{
   -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+  flex: 1 1 1;
   padding: 1.25rem;
   font-family: 'Montserrat';
   color: white;
@@ -237,13 +237,45 @@ h6 {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
+  top: 945px;
   left: 0;
   bottom: 0;
   width: 96%;
   height: 66px;
   text-align: right;
   background-color: transparent;
+}
+  
+
+@media (min-width: 768px) {
+
+  .footer {
+    position: fixed;
+    top: 500px;
+    left: 0;
+    bottom: 0;
+    width: 96%;
+    height: 66px;
+    text-align: right;
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 992px) {
+  body{
+    overflow: hidden;
+  }
+    .footer {
+      position: fixed;
+      top: 600px;
+      left: 0;
+      bottom: 0;
+      width: 96%;
+      height: 66px;
+      text-align: right;
+      background-color: transparent;
+    }
 }
 
 ::-webkit-scrollbar{
