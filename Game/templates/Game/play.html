@@ -30,6 +30,12 @@
         <hr class="my-5">
         <h3>Room : {{ room.room_id }}</h3>
         <div class="row justify-content-left">
+        <div class="col-md-4">
+                    <div class="hamburger">
+                    <div>Time: <span id="time">{{room.time}}</span> seconds!</div>
+                    <img src="{% static 'Game/css/img/ham.gif'%}">
+                    </div>
+            </div>
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">Quiz: {{ quiz.quizz_name }} {{dict_question.index}} / {{number}}</div>
@@ -48,12 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                    <div class="hamburger">
-                    <div>Time: <span id="time">{{room.time}}</span> seconds!</div>
-                    <img src="{% static 'Game/css/img/ham.gif'%}">
-                    </div>
-            </div>
+            
             <div class="col-md-3">
                 <div class="card">
                         <div class="card-header">Player info</div>
