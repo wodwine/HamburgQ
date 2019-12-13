@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from django.conf.urls import handler404
+from django.conf.urls import handler404,handler500
 from Game import views
 
 app_name = 'Game'
@@ -14,8 +14,7 @@ urlpatterns = [
     path('login/',views.login,name = "login"),
     path('login/host/',views.login_host,name = "login_host"),
     path('create/',views.create_room,name = 'create_room'),
-    path('login/guest',views.login_guest,name = 'login_guest'),
-    path('guestredirect/',views.redirdirect_guest,name= 'redirect_guest'),
+    path('login/guest/',views.login_guest,name = 'login_guest'),
     path('WRhost/<int:RoomId>/',views.waiting_room_host,name = 'WR_host'),
     path('WRguest/<int:RoomId>/',views.waiting_room_guest,name = 'WR_guest'),
     path('play/<int:RoomId>/<str:PlayerName>/',views.start_quiz, name = "start_quiz"),
@@ -25,3 +24,4 @@ urlpatterns = [
 ]
 
 handler404 = views.error_404
+handler500 = views.error_500

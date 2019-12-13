@@ -36,11 +36,11 @@
                     <div class="card-header"><h3>Room : {{ room.room_id }}</h3></div>
                     <div class="card-body bd-score">
                             {% for each_player in all_player %}
+
                             No. {{forloop.counter}}
                             <hr>
                             <div class="col-md-12">
                                     <h6>Player: {{each_player.player_name.title }}</h6>
-                                    <h6>Score: {{each_player.score }}</h6>
                                     <h6>Streak: {{each_player.streak }}</h6>
                                     <h6>{{room.created}}<h6>
                             </div>
