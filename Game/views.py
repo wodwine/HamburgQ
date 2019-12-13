@@ -7,7 +7,23 @@ from django.urls import reverse
 from django.views import generic
 import sqlite3
 from django.utils import timezone
+import logging
+import random
 
+LOG_FILE_NAME = 'HamburQ.log'
+
+def configure_log(log_name:str):
+    """configure logger and log with name = argument"""
+    filehandler = logging.FileHandler(log_name)
+    root = logging.getLogger()
+    root.setLevel( logging.NOTSET )
+    filehandler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(
+        'time:%(asctime)s from "%(name)s" level:%(levelname)s -- %(message)s'
+        )
+    filehandler.setFormatter(formatter)
+    root = logging.getLogger()
+    root.addHandler(filehandler)
 
 def get_random_id():
     new_name = ""
@@ -57,15 +73,21 @@ def create_room(request):
     except:
         return redirect(reverse("Game:login_host"))
     else:
+        configure_log(LOG_FILE_NAME)
+        logger = logging.getLogger()
+        logger.info(f"{str(request.user.username)} create room with id {room_unique_id}")
         return redirect(reverse("Game:WR_host",args=[str(waiting_room.room_id)]))
 
 def login_guest(request):
     return render(request,'Login/loginguest.html')
 
-def redirdirect_guest(request):
-    get_code = request.POST['roomCode']
-    get_name = request.POST['playerName']
-    return redirect
+# def redirect_guest(request):
+#     get_code = request.POST['roomCode']
+#     get_name = request.POST['playerName']
+#     configure_log(LOG_FILE_NAME)
+#     logger = logging.getLogger()
+#     logger.info(f"{str(get_name)} login room with id {get_code}")
+#     return redirect
 
 def waiting_room_host(request,RoomId):
     waiting_room = get_object_or_404(WaitingRoom, room_id=RoomId)
@@ -84,6 +106,7 @@ def waiting_room_guest(request,RoomId):
         if get_name not in list_player_name:
             player = Player(player_name=str(get_name),room = waiting_room)
             player.save()
+            player.log()
         all_player = waiting_room.player_set.all()
         player = Player.objects.get(player_name=get_name,room_id=waiting_room)
         # javascript boolean use lower case
@@ -131,7 +154,7 @@ def all_result(request,RoomId,PlayerName):
     if not waiting_room.time_over():
         return redirect(reverse('Game:result' ,args=[RoomId,PlayerName] ))
     player = get_object_or_404(Player, player_name=PlayerName,room_id = waiting_room.id)
-    all_player = waiting_room.player_set.all()
+    all_player = waiting_room.player_set.order_by('-streak')
     context = {'player':player,'room':waiting_room,'all_player':all_player}
     return render(request,'Game/result_all.html',context)
 
@@ -156,7 +179,8 @@ def start_quiz(request,RoomId,PlayerName):
             index = pointer
     dict_question = {'question': question,
                     'index':index+1}
-    choices_list = question.choice_set.all()
+    choices_list = list(question.choice_set.all().order_by('choice_text')[:10])
+    random.shuffle(choices_list)
     context = {'room' : waiting_room , 'quiz':quiz ,'dict_question':dict_question ,'choices':choices_list,'current_player':player,'number':len(question_set)}
     return render(request, 'Game/play.html', context)
 
@@ -177,3 +201,7 @@ def log_out_guest(request,player_id):
 def error_404(request, exception):
     data = {}
     return render(request,'404.html', data)
+
+def error_500(request):
+    data = {}
+    return render(request,'500.html', data)

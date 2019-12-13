@@ -1,5 +1,6 @@
 import os
 from decouple import config
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -7,7 +8,7 @@ SECRET_KEY = config("SECRET_KEY",default = 'sefwejgmerijgmerohkb')
 
 DEBUG = config("DEBUG", cast=bool,default = False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast = list, default=["*"])
+ALLOWED_HOSTS = ['*']
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '759857441239-fa9go0qliajblplqp7v5okij3njq10gr.apps.googleusercontent.com'
@@ -97,3 +98,17 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+if 'HEROKU' in os.environ:
+    # Configure Django App for Heroku.
+    import django_heroku
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
+    django_heroku.settings(locals())
+else:
+    STATIC_ROOT = 'static'
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (
+    BASE_DIR + '/Game/static/' ,
+)

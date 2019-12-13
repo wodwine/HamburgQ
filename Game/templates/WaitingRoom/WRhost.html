@@ -34,7 +34,7 @@
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-header"><h3>{{room.room_name}}: {{room.room_id}}</h3></div>
+                    <div class="card-header" name ="RoomID" id = "{{room.room_id}}"><h3>{{room.room_name}}: {{room.room_id}}</h3></div>
                     <div class="card-body">
                         <form action="" method="">
                             <div class="form-group row">
@@ -69,10 +69,20 @@
                             <form action="" method="">
                                     <div class="form-group row">
                                             {% for player in all_player%}
+                                            {% if player.status == "Host" %}
+                                            <label class="col-md-4 col-form-label text-md-right">Host:</label>
+                                            <div class="col-md-6">
+                                                <h4>{{player.player_name.title}}</h4>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+                                            {% for player in all_player%}
+                                            {% if player.status == "Player" %}
                                             <label class="col-md-4 col-form-label text-md-right">Player:</label>
                                             <div class="col-md-6">
                                                 <h4>{{player.player_name.title}}</h4>
                                             </div>
+                                            {% endif %}
                                             {% endfor %}
                                     </div>
                             </form>
