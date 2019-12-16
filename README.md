@@ -64,16 +64,26 @@ Open the Terminal and use command:
 
 ### Step 7: Create database tables.
 
-    python manage.py migrate
-
-
+    python3 manage.py migrate
 
 ### Step 8: Load data dump from `data.json`
 
-
-    python manage.py loaddata data.json
-
+   This is for adding our premade data
+    
+    python3 manage.py loaddata data.json
 
 ### Step9: Run server at localhost:8000
 
-    python manage.py runserver --insecure
+    python3 manage.py runserver --insecure
+
+### Step 10: create question yourself
+
+   to create a question you must first create superuser (stop your server from running when doing this)
+   
+    python3 manage.py createsuperuser
+    
+   and add infomation of superuser (user, email and password) then runserver
+   
+    python3 manage.py runserver --insecure
+    
+   then click admin button at [your homepage](https://127.0.0.1:8000/) and login with your superuser, now you can edit, add or remove any quiz, question, choices, waiting room or player you like
