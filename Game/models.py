@@ -58,7 +58,8 @@ class WaitingRoom(models.Model):
         return self.room_name
         
     def get_time_over(self):
-        return self.created + datetime.timedelta(seconds=(self.time * len(self.quiz_type.question_set.all())))
+        #add two second to let program chtach up
+        return self.created + datetime.timedelta(seconds=(self.time * len(self.quiz_type.question_set.all()) - 2))
 
     def time_over(self):
         # datetime.timedelta will always display negative time with -days
